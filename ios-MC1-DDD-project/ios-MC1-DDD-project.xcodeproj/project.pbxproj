@@ -11,6 +11,12 @@
 		0A3D647D27FEB31C004C4F46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3D647C27FEB31C004C4F46 /* ContentView.swift */; };
 		0A3D647F27FEB31D004C4F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3D647E27FEB31D004C4F46 /* Assets.xcassets */; };
 		0A3D648227FEB31D004C4F46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3D648127FEB31D004C4F46 /* Preview Assets.xcassets */; };
+		EC98143F2804608400ADED04 /* DiaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9814392804608400ADED04 /* DiaryDetailView.swift */; };
+		EC9814402804608400ADED04 /* QuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98143A2804608400ADED04 /* QuestionDetailView.swift */; };
+		EC9814412804608400ADED04 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98143B2804608400ADED04 /* TagView.swift */; };
+		EC9814422804608400ADED04 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98143C2804608400ADED04 /* DiaryView.swift */; };
+		EC9814432804608400ADED04 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98143D2804608400ADED04 /* ViewExtension.swift */; };
+		EC9814442804608400ADED04 /* QuestionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98143E2804608400ADED04 /* QuestionTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		0A3D647C27FEB31C004C4F46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A3D647E27FEB31D004C4F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A3D648127FEB31D004C4F46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EC9814392804608400ADED04 /* DiaryDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryDetailView.swift; sourceTree = "<group>"; };
+		EC98143A2804608400ADED04 /* QuestionDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionDetailView.swift; sourceTree = "<group>"; };
+		EC98143B2804608400ADED04 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		EC98143C2804608400ADED04 /* DiaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
+		EC98143D2804608400ADED04 /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		EC98143E2804608400ADED04 /* QuestionTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +65,12 @@
 			children = (
 				0A3D647A27FEB31C004C4F46 /* ios_MC1_DDD_projectApp.swift */,
 				0A3D647C27FEB31C004C4F46 /* ContentView.swift */,
+				EC9814392804608400ADED04 /* DiaryDetailView.swift */,
+				EC98143C2804608400ADED04 /* DiaryView.swift */,
+				EC98143A2804608400ADED04 /* QuestionDetailView.swift */,
+				EC98143E2804608400ADED04 /* QuestionTitleView.swift */,
+				EC98143B2804608400ADED04 /* TagView.swift */,
+				EC98143D2804608400ADED04 /* ViewExtension.swift */,
 				0A3D647E27FEB31D004C4F46 /* Assets.xcassets */,
 				0A3D648027FEB31D004C4F46 /* Preview Content */,
 			);
@@ -137,8 +155,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC98143F2804608400ADED04 /* DiaryDetailView.swift in Sources */,
+				EC9814412804608400ADED04 /* TagView.swift in Sources */,
+				EC9814422804608400ADED04 /* DiaryView.swift in Sources */,
+				EC9814432804608400ADED04 /* ViewExtension.swift in Sources */,
+				EC9814402804608400ADED04 /* QuestionDetailView.swift in Sources */,
 				0A3D647D27FEB31C004C4F46 /* ContentView.swift in Sources */,
 				0A3D647B27FEB31C004C4F46 /* ios_MC1_DDD_projectApp.swift in Sources */,
+				EC9814442804608400ADED04 /* QuestionTitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

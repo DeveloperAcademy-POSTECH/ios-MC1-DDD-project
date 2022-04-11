@@ -9,8 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            NavigationLink {
+                DiaryView()
+            }label:{
+                Text("Hello, world!")
+                    .padding()
+            }
+            .navigationBarTitle("",displayMode: .inline)
+        }
     }
 }
 
