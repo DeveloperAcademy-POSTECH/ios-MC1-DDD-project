@@ -2,15 +2,14 @@
 //  ContentView.swift
 //  ios-MC1-DDD-project
 //
-//  Created by 이성노 on 2022/04/07.
+//  Created by Park Sungmin on 2022/04/11.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
