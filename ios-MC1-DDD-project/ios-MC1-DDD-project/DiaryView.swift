@@ -14,11 +14,13 @@ extension UIApplication {
 }
 
 struct DiaryView: View {
+    @Binding var questionList: [String]
     
-    init() {
+    init(questionList: Binding<[String]>) {
         UITextView.appearance().backgroundColor = .clear
+        self._questionList = questionList
     }
-    @State private var questionList = ["질문1","질문2","질문3"]
+    
     @State private var textTitle = ""
     @State private var text = ""
     
@@ -49,7 +51,7 @@ struct DiaryView: View {
                     if(self.isfold){
                         
                     }else{
-                        QuestionDetailView()
+                        QuestionDetailView(questionList: $questionList)
                     }
                 } //VStack_2
             }//VStack_1
@@ -114,6 +116,6 @@ struct DiaryView: View {
 
 struct DiaryView_Previews: PreviewProvider {
     static var previews: some View {
-        DiaryView()
+        DiaryView(questionList: .constant(["첫 번째 질문", "두 번째 질문", "세 번째 질문"]))
     }
 }

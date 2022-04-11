@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuestionDetailView: View {
-    @State private var questionList = ["질문1","질문2","질문3"]
+    @Binding var questionList: [String]
     
     var body: some View {
         VStack(spacing:0) {
@@ -24,6 +24,6 @@ struct QuestionDetailView: View {
 
 struct QuestionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionDetailView()
+        QuestionDetailView(questionList: .constant(["질문1", "질문2", "질문3"]))
     }
 }
