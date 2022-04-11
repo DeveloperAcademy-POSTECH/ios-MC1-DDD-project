@@ -28,7 +28,7 @@ struct PlantingSeedView: View {
                     }
                 }
                 NavigationLink(isActive: $sayHello) {
-                    NextView()
+                    NextView().navigationBarBackButtonHidden(true)
                 } label: {}
             }
         }
