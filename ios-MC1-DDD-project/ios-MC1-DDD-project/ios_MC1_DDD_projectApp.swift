@@ -11,7 +11,8 @@ import SwiftUI
 struct ios_MC1_DDD_projectApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainPageView()
+            
         }
     }
 }

@@ -59,6 +59,7 @@ struct DiaryView: View {
                 RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
                     .foregroundColor(Color(red: 239.0 / 255, green: 172.0 / 255, blue: 120.0 / 255))
             )
+            .padding(.top, 15)
 
             Spacer()
             
@@ -69,7 +70,7 @@ struct DiaryView: View {
 //                    UIApplication.shared.endEditing()
 //                }
                 .font(.system(size: 20, weight: .bold))
-                .frame(width:330, height: 40)
+                .frame(width:260, height: 40)
                 .padding(.leading,15)
                 .padding(.trailing,15)
                 .padding(.top,10)
@@ -88,7 +89,7 @@ struct DiaryView: View {
                                 .padding(.vertical, 12)
                         }
                         TextEditor(text:$text)
-                            .frame(maxWidth:330, maxHeight: .infinity)
+                            .frame(maxWidth:260, maxHeight: .infinity)
                             .padding(.leading,5)
                             .padding(.trailing, 5)
                             .onTapGesture {
@@ -96,26 +97,32 @@ struct DiaryView: View {
                             }
                     }
                     .font(.body)
-                }//ScrollView
+                } //ScrollView
+                
+                // TagView(tagTests: []) //간단한 태그기능..
+                
+                NavigationLink{
+                    DiaryDetailView(textTitle: $textTitle, text: $text)
+                }label: {
+                    Image("saveButton")
+                }
                 
             } //VStack_3
             .overlay(
                 RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
                     .foregroundColor(Color(red: 239.0 / 255, green: 172.0 / 255, blue: 120.0 / 255))
             )
+            .padding(.bottom, 15)
 
-//            TagView(tagTests: []) //간단한 태그기능..
-            NavigationLink{
-                DiaryDetailView(textTitle: $textTitle, text: $text)
-            }label: {
-                Text("다음")
-            }
         }//VStack_0
+        .frame(width: 320, height: 700, alignment: .center)
     }
+
 }
 
 struct DiaryView_Previews: PreviewProvider {
     static var previews: some View {
         DiaryView(questionList: .constant(["첫 번째 질문", "두 번째 질문", "세 번째 질문"]))
+            .previewLayout(.fixed(width: 320, height: 700))
     }
 }

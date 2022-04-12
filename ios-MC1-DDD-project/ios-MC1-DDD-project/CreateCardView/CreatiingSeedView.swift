@@ -20,6 +20,7 @@ struct CreatingSeedView: View {
         ZStack{
             Color("BackgroundColor").edgesIgnoringSafeArea(.all)
             
+            
             VStack{
                 ZStack{
                     
@@ -27,12 +28,12 @@ struct CreatingSeedView: View {
                     HStack(spacing: 0){
                         
                         VStack(alignment: .center){
-//                            Text("씨앗 만들기")
-////                            Text("\(Int(currentPageIndex))")
-//                                .foregroundColor(.white)
-//                                .font(.system(size: 20, weight: .heavy))
-//                                .frame(maxWidth: .infinity, alignment: .leading)
-//                                .padding(.bottom, 1)
+                            //                            Text("씨앗 만들기")
+                            ////                            Text("\(Int(currentPageIndex))")
+                            //                                .foregroundColor(.white)
+                            //                                .font(.system(size: 20, weight: .heavy))
+                            //                                .frame(maxWidth: .infinity, alignment: .leading)
+                            //                                .padding(.bottom, 1)
                             
                             Text("2022.04.11.")
                                 .foregroundColor(.white)
@@ -65,9 +66,9 @@ struct CreatingSeedView: View {
                         
                         // 이미지 들어갈 영역
                         // padding 15pt + (씨앗 그림 90pt) + padding 15pt = 120pt
-//                        Rectangle()
-//                            .frame(width: 120, height: 170)
-//                            .opacity(0)
+                        //                        Rectangle()
+                        //                            .frame(width: 120, height: 170)
+                        //                            .opacity(0)
                     }
                     .overlay(
                         RoundedRectangle(cornerRadius:15)
@@ -77,7 +78,7 @@ struct CreatingSeedView: View {
                     .frame(minWidth: 320, minHeight: 140, alignment: .center)
                     .padding(10)
                     .padding(.top, 10)
-
+                    
                     
                     
                 }
@@ -85,14 +86,16 @@ struct CreatingSeedView: View {
                 HStack {
                     // 여기에 씨앗 만드는 뷰 연결하기
                     TestCreatingSeedView("1 page", isSelected: $isFaceSelected)
+                        .scaleEffect(currentPageIndex == 3 ? 1 : 0.93)
                     TestCreatingSeedView("2 page", isSelected: $isShapeSelected)
+                        .scaleEffect(currentPageIndex == 2 ? 1 : 0.93)
                     TestCreatingSeedView("3 page", isSelected: $isColorSelected)
+                        .scaleEffect(currentPageIndex == 1 ? 1 : 0.93)
                     TestCreatingSeedView("4 page", isSelected: $isNameSelected)
-                }.modifier(ScrollingHStackModifier(items:4, itemWidth: 320, itemSpacing: 10, currentPageIndex: $currentPageIndex))
-                
+                        .scaleEffect(currentPageIndex == 0 ? 1 : 0.93)
+                }.modifier(ScrollingHStackModifier(items:4, itemWidth: 320, itemSpacing: 5, currentPageIndex: $currentPageIndex))
             }
         }
-        
     }
 }
 

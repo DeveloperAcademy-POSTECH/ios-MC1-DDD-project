@@ -11,7 +11,7 @@ struct QuestionTitleView: View {
     var body: some View {
         Text("오늘의 질문")
             .font(.system(size: 16, weight: .bold))
-            .frame(width: 360, height: 40)
+            .frame(width: 290, height: 40)
             .foregroundColor(Color.white)
             .background(Color(red: 239.0 / 255, green: 172.0 / 255, blue: 120.0 / 255))
     }

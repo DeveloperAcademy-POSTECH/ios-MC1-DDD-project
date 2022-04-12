@@ -15,7 +15,7 @@ struct QuestionDetailView: View {
             ForEach(questionList, id:\.self) { question in
                 Text(question)
                     .font(.system(size: 16/*, weight: .bold*/))
-                    .frame(width: 360, height: 40)
+                    .frame(width: 290, height: 40)
                     .minimumScaleFactor(0.2)
             }
         }
