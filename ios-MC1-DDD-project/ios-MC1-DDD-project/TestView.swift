@@ -12,7 +12,7 @@ struct TestView: View {
         
         Image("seed_example")
             .renderingMode(.template)
-            .foregroundColor(Color("Color1"))
+            .foregroundColor(Color("Color2"))
     }
 }
 
