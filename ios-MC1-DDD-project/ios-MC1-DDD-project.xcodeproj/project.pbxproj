@@ -13,6 +13,7 @@
 		0A3D648227FEB31D004C4F46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3D648127FEB31D004C4F46 /* Preview Assets.xcassets */; };
 		3074FF73280300CF00300DDE /* PlantingSeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074FF72280300CF00300DDE /* PlantingSeedView.swift */; };
 		3074FF752804069D00300DDE /* NextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074FF742804069D00300DDE /* NextView.swift */; };
+		3074FF7928054EEF00300DDE /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074FF7828054EEF00300DDE /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		0A3D648127FEB31D004C4F46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3074FF72280300CF00300DDE /* PlantingSeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantingSeedView.swift; sourceTree = "<group>"; };
 		3074FF742804069D00300DDE /* NextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextView.swift; sourceTree = "<group>"; };
+		3074FF7828054EEF00300DDE /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				0A3D647C27FEB31C004C4F46 /* NamingSeedView.swift */,
 				3074FF72280300CF00300DDE /* PlantingSeedView.swift */,
 				3074FF742804069D00300DDE /* NextView.swift */,
+				3074FF7828054EEF00300DDE /* TestView.swift */,
 				0A3D647E27FEB31D004C4F46 /* Assets.xcassets */,
 				0A3D648027FEB31D004C4F46 /* Preview Content */,
 			);
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3074FF73280300CF00300DDE /* PlantingSeedView.swift in Sources */,
+				3074FF7928054EEF00300DDE /* TestView.swift in Sources */,
 				0A3D647D27FEB31C004C4F46 /* NamingSeedView.swift in Sources */,
 				0A3D647B27FEB31C004C4F46 /* ios_MC1_DDD_projectApp.swift in Sources */,
 				3074FF752804069D00300DDE /* NextView.swift in Sources */,
