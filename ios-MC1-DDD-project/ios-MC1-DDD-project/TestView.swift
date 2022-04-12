@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct TestView: View {
+    var body: some View {
         
         Image("seed_example")
             .renderingMode(.template)
-            .foregroundColor(Color9)
+            .foregroundColor(Color("Color1"))
     }
 }
 
