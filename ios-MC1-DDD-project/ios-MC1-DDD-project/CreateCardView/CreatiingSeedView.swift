@@ -82,9 +82,8 @@ struct CreatingSeedView: View {
                     TestCreatingSeedView("1 page", isSelected: $isFaceSelected)
                     TestCreatingSeedView("2 page", isSelected: $isShapeSelected)
                     TestCreatingSeedView("3 page", isSelected: $isColorSelected)
-                    TestCreatingSeedView("4 page", isSelected: $isNameSelected)
                     TagView("씨앗에 이름을 만들어줘", isSelected: $isNameSelected) //변수 수정필요
-                }.modifier(ScrollingHStackModifier(items:5, itemWidth: 320, itemSpacing: 10, currentPageIndex: $currentPageIndex))
+                }.modifier(ScrollingHStackModifier(items:4, itemWidth: 320, itemSpacing: 10, currentPageIndex: $currentPageIndex))
                 
             }
         }
