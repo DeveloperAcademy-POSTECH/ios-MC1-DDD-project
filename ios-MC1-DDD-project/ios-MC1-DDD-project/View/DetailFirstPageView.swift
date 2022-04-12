@@ -13,12 +13,12 @@ struct DetailFirstPageView: View {
     @State var isTappedNumber: Int = 0
     @State var currentPageIndex: CGFloat = 3
     
-    @State var isFaceSelected = false;
+//    @State var isFaceSelected = false;
     @State var isShapeSelected = false;
     @State var isColorSelected = false;
     @State var isNameSelected = false;
     
-    @State var firstIsSelected = false
+    @State var firstIsSelected = false //표정선택 유무
     
     
     var body: some View {
@@ -44,7 +44,7 @@ struct DetailFirstPageView: View {
                     // 이미지 들어갈 영역
                     // padding 15pt + (씨앗 그림 90pt) + padding 15pt = 120pt
                     ZStack{
-                        Image("ShapePNG\(ChooseSecondDetailInformation(isTappedNumber: $isTappedNumber).isTappedNumber)")
+                        Image("ShapePNG\(ChooseSecondDetailInformation(isTappedNumber: $isTappedNumber,isShapeSelected: $isShapeSelected).isTappedNumber)")
                             .scaleEffect(1.8)
         //                    .offset(x: 0, y: -260)
                         
@@ -91,13 +91,14 @@ struct DetailFirstPageView: View {
                             .scaleEffect(currentPageIndex == 3 ? 1 : 0.93)
                         
                     } else if (i % 4 == 1) {
-                        ChooseSecondDetailInformation(isTappedNumber: $isTappedNumber)                            .scaleEffect(currentPageIndex == 2 ? 1 : 0.93)
+                        ChooseSecondDetailInformation(isTappedNumber: $isTappedNumber, isShapeSelected: $isShapeSelected)
+                            .scaleEffect(currentPageIndex == 2 ? 1 : 0.93)
                         
                     } else if (i % 4 == 2) {
-                        ChooseThirdDetailInformation()                            .scaleEffect(currentPageIndex == 1 ? 1 : 0.93)
+                        ChooseThirdDetailInformation(isColorSelected: $isColorSelected)                            .scaleEffect(currentPageIndex == 1 ? 1 : 0.93)
                         
                     } else {
-                        ChooseForthDetailInformation()                            .scaleEffect(currentPageIndex == 0 ? 1 : 0.93)
+                        ChooseForthDetailInformation(isFaceSelected: $firstIsSelected, isShapeSelected: $isShapeSelected, isColorSelected: $isColorSelected, isNameSelected: $isNameSelected).scaleEffect(currentPageIndex == 0 ? 1 : 0.93)
                         
                     }
                 }

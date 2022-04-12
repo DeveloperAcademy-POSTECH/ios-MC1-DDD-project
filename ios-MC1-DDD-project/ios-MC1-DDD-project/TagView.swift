@@ -16,6 +16,11 @@ struct TagView: View {
     @State var seedname: String = ""
     @State var remind = true
     
+    init(titleName: String, isSelected: Binding<Bool>) {
+        self.titleName = titleName
+        self._isSelected = isSelected
+    }
+    
     var color_text: Color = Color(red: 102/255, green: 102/255, blue: 102/255)
     var color_style: Color = Color(red: 151/255, green: 151/255, blue: 151/255)
     var color_button: Color = Color(red: 136/255, green: 136/255, blue: 136/155)
@@ -26,13 +31,13 @@ struct TagView: View {
                 Text(titleName)
                     .font(.system(size: 20, weight: .heavy))
                     .foregroundColor(color_text)
-//                Button(action: {
-//                    isSelected.toggle()
-//                }) {
-//                    Text(titleName)
-//                        .font(.system(size: 20, weight: .heavy))
-//                        .foregroundColor(.black)
-//                }
+                //                Button(action: {
+                //                    isSelected.toggle()
+                //                }) {
+                //                    Text(titleName)
+                //                        .font(.system(size: 20, weight: .heavy))
+                //                        .foregroundColor(.black)
+                //                }
                 ZStack {
                     HStack {
                         TextField("이름", text: $seedname)
@@ -62,88 +67,67 @@ struct TagView: View {
                     .font(.system(size: 20, weight:.bold))
                     .foregroundColor(color_text)
                 HStack{
-                    Text("#")
-                        .font(.system(size: 20))
-                        .foregroundColor(color_text)
-                    TextField("오늘의 키워드", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                        .padding(.horizontal)
-                        .frame(width: .infinity, height: 40, alignment: .center)
-                        .overlay(
-                            RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
-                                .foregroundColor(color_style))
+                    MakeWord()
+                    MakeWord()
+                    MakeWord()
                 }
                 .frame(width: 256, alignment: .center)
                 
-                HStack{
-                    Text("#")
-                        .font(.system(size: 20))
-                        .foregroundColor(color_text)
-                    TextField(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/, text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                        .padding(.horizontal)
-                        .frame(width: .infinity, height: 40, alignment: .center)
-                        .overlay(
-                            RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
-                                .foregroundColor(color_style))
-//                            Color("darkcolor").opacity(0.8))
-                }
-                .frame(width: 256, alignment: .center)
                 
-                HStack{
-                    Text("#")
-                        .font(.system(size: 20))
-                        .foregroundColor(color_text)
-                    TextField(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/, text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                        .padding(.horizontal)
-                        .frame(width: .infinity, height: 40, alignment: .center)
-                        .overlay(
-                            RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
-                                .foregroundColor(color_style))
+                //            HStack(alignment: .top, spacing: 100.0)
+                //            {
+                //                Toggle(isOn: $remind)
+                //                {
+                //                    Text("나중에 너의 씨앗을 다시 살펴볼까?")
+                //                        .font(.system(size: 14))
+                //                        .foregroundColor(Color("darkcolor"))
+                //                        .bold()
+                //                }.toggleStyle(CheckboxStyle())
+                //
+                //            }
+                Button {
+                    print("테스트입니다.")
+                }label: {
+                    Text("씨앗카드 완성하기").bold()
                 }
-                .frame(width: 256, alignment: .center)
+                .frame(width: 200, height: 40, alignment: .center)
+                .foregroundColor(.white)
+                .background(color_style)
+                .cornerRadius(15)
+                
+                
             }
-            
-//            HStack(alignment: .top, spacing: 100.0)
-//            {
-//                Toggle(isOn: $remind)
-//                {
-//                    Text("나중에 너의 씨앗을 다시 살펴볼까?")
-//                        .font(.system(size: 14))
-//                        .foregroundColor(Color("darkcolor"))
-//                        .bold()
-//                }.toggleStyle(CheckboxStyle())
-//
-//            }
-            Button {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-            }label: {
-                Text("씨앗카드 완성하기").bold()
-            }
-            .frame(width: 200, height: 40, alignment: .center)
-            .foregroundColor(.white)
-            .background(color_style)
+            .padding(30)
+            .frame(width: 320, height: 500, alignment: .center)
+            .background(Color.white)
             .cornerRadius(15)
-            
-            
+            //
         }
-        .padding(30)
-        .frame(width: 320, height: 500, alignment: .center)
-        .background(Color.white)
-        .cornerRadius(15)
-        //
-        
-    }
-    
-    
-    
-    init(_ name: String, isSelected: Binding<Bool>) {
-        titleName = name;
-        self._isSelected = isSelected
     }
 }
 
 struct TagView_Previews: PreviewProvider {
     static var previews: some View {
-        TagView("씨앗에 이름을 붙여줘", isSelected: .constant(true))
+        TagView(titleName: "씨앗에 이름을 붙여줘", isSelected: .constant(true))
             .previewLayout(.fixed(width: 320, height: 500))
+    }
+}
+
+struct MakeWord: View {
+    var color_text: Color = Color(red: 102/255, green: 102/255, blue: 102/255)
+    var color_style: Color = Color(red: 151/255, green: 151/255, blue: 151/255)
+    
+    var body: some View {
+        HStack {
+            Text("#")
+                .font(.system(size: 20))
+                .foregroundColor(color_text)
+            TextField("오늘의 키워드", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                .padding(.horizontal)
+                .frame(width: .infinity, height: 40, alignment: .center)
+                .overlay(
+                    RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
+                        .foregroundColor(color_style))
+        }
     }
 }

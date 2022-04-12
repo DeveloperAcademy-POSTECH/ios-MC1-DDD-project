@@ -40,7 +40,7 @@ struct ChooseForthDetailInformation1: View {
 
 struct ChooseForthDetailInformation1_Previews: PreviewProvider {
     static var previews: some View {
-        ChooseForthDetailInformation()
+        ChooseForthDetailInformation1()
             .previewLayout(.fixed(width: 320, height: 500))
     }
 }

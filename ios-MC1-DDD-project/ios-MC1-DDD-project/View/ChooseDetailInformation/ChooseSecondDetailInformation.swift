@@ -11,6 +11,7 @@ struct ChooseSecondDetailInformation: View {
     @State var isTapped: [Bool] = [false, false, false, false, false, false, false, false, false]
     
     @Binding var isTappedNumber: Int
+    @Binding var isShapeSelected: Bool
 
     func readyToGetToggle() {
         for index in 0...8 {
@@ -39,6 +40,7 @@ struct ChooseSecondDetailInformation: View {
                                 readyToGetToggle()
                                 isTapped[i].toggle()
                                 isTappedNumber = i
+                                isShapeSelected = true
                             }
                     }
                 }
@@ -52,6 +54,7 @@ struct ChooseSecondDetailInformation: View {
                                 readyToGetToggle()
                                 isTapped[i].toggle()
                                 isTappedNumber = i
+                                isShapeSelected = true
                             }
                     }
                 }
@@ -65,6 +68,7 @@ struct ChooseSecondDetailInformation: View {
                                 readyToGetToggle()
                                 isTapped[i].toggle()
                                 isTappedNumber = i
+                                isShapeSelected = true
                             }
                     }
                 }
@@ -75,7 +79,7 @@ struct ChooseSecondDetailInformation: View {
 
 struct ChooseSecondDetailInformation_Previews: PreviewProvider {
     static var previews: some View {
-        ChooseSecondDetailInformation(isTappedNumber: .constant(0))
+        ChooseSecondDetailInformation(isTappedNumber: .constant(0), isShapeSelected: .constant(false))
             .previewLayout(.fixed(width: 320, height: 500))
     }
 }
