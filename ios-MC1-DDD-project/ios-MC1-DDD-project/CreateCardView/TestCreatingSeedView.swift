@@ -21,7 +21,7 @@ struct TestCreatingSeedView: View {
                     .font(.system(size: 20, weight: .heavy))
             }
         }
-        .frame(width: 300, height: 550, alignment: .center)
+        .frame(width: 320, height: 500, alignment: .center)
         .background(Color.white)
         .cornerRadius(15)
     }
@@ -35,6 +35,6 @@ struct TestCreatingSeedView: View {
 struct TestCreatingSeedView_Previews: PreviewProvider {
     static var previews: some View {
         TestCreatingSeedView("오늘 너의 하루는 어땠니?", isSelected: .constant(true))
-            .previewLayout(.fixed(width: 300, height: 550))
+            .previewLayout(.fixed(width: 320, height: 500))
     }
 }
