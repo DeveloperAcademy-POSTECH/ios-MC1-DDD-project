@@ -1,0 +1,72 @@
+//
+//  SelectQuestionView.swift
+//  ios-MC1-DDD-project
+//
+//  Created by Park Sungmin on 2022/04/12.
+//
+
+import SwiftUI
+
+struct SelectQuestionView: View {
+    @State private var selectedQuestion: [Bool] = [false, false, false, false, false, false, false, false]
+    @State private var selectedQuestionNumber: Int = 0
+    
+    var body: some View {
+        VStack {
+            Text("답하고 싶은\n질문을 골라봐")
+                .fontWeight(.heavy)
+                .padding(.top, 50.0)
+                .padding(.leading, 30.0)
+                .padding(.bottom, 50.0)
+                .frame(width: 300, alignment: .leading)
+                .font(.system(size:20))
+            
+            VStack(alignment: .center) {
+                ForEach(0..<8) { index in
+                    Button(action: {
+                        if(selectedQuestionNumber == 3) {
+                            if(selectedQuestion[index]) {
+                                selectedQuestion[index].toggle()
+                                selectedQuestionNumber -= 1
+                            }
+                        } else{
+                            selectedQuestion[index].toggle()
+                            selectedQuestionNumber += selectedQuestion[index] ? 1 : -1
+                        }
+                    }) {
+                        Text("오늘 너의 기분을 점수로 표현하면?")
+                            .font(.system(size: 14, weight: .semibold))
+                    }
+                    .foregroundColor(Color(red: 104/255, green: 104/255, blue: 104/255))
+                    .frame(width: 270, height: 35)
+                    .padding(3)
+                    .background(selectedQuestion[index] ? Color(red: 216/255, green: 216/255, blue: 216/255): Color.white)
+                    .cornerRadius(15)
+                    
+                    .overlay(RoundedRectangle(cornerRadius: 15)
+                        .stroke(Color.gray, lineWidth: 2)
+                    )
+                }
+                
+            }
+            Spacer()
+            Button(action:{
+                
+            }) {
+                Image("EvolutionWithRetrospectButton")
+            }
+            .padding(.bottom, 20)
+        }
+        .frame(width: 320, height: 670, alignment: .center)
+        .background(Color.white)
+        .cornerRadius(15)
+    }
+}
+
+struct SelectQuestionView_Previews: PreviewProvider {
+    static var previews: some View {
+        SelectQuestionView()
+            .previewLayout(.fixed(width: 320, height: 670))
+        
+    }
+}

@@ -26,19 +26,25 @@ struct CreatingSeedView: View {
                     
                     HStack(spacing: 0){
                         
-                        VStack(alignment: .leading){
-                            Text("씨앗 만들기")
-//                            Text("\(Int(currentPageIndex))")
-                                .foregroundColor(.white)
-                                .font(.system(size: 20, weight: .heavy))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.bottom, 1)
+                        VStack(alignment: .center){
+//                            Text("씨앗 만들기")
+////                            Text("\(Int(currentPageIndex))")
+//                                .foregroundColor(.white)
+//                                .font(.system(size: 20, weight: .heavy))
+//                                .frame(maxWidth: .infinity, alignment: .leading)
+//                                .padding(.bottom, 1)
                             
                             Text("2022.04.11.")
                                 .foregroundColor(.white)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.system(size:16, weight: .medium))
-                                .padding(.bottom, 20)
+                                .frame(maxWidth: 300, alignment: .center)
+                                .font(.system(size:12, weight: .medium))
+                                .padding(.top, 16)
+                            
+                            // 이미지 들어갈 영역
+                            // padding 15pt + (씨앗 그림 90pt) + padding 15pt = 120pt
+                            Rectangle()
+                                .frame(width: 100, height: 100)
+                                .opacity(70)
                             
                             HStack {
                                 
@@ -54,25 +60,23 @@ struct CreatingSeedView: View {
                                 Image(isNameSelected ? "SelectedBar_Selected" : "SelectedBar_NotSelected")
                                     .padding(.bottom, (0 == Int(currentPageIndex)) ? 20 : 0)
                             }
-                            .frame(height: 30)
+                            .frame(width: 320, height: 30)
                         }
-                        .frame(width: 135, height: 170)
-                        .padding(.leading, 30.0)
-                        .padding(.trailing, 15.0)
                         
                         // 이미지 들어갈 영역
                         // padding 15pt + (씨앗 그림 90pt) + padding 15pt = 120pt
-                        Rectangle()
-                            .frame(width: 120, height: 170)
-                            .opacity(0)
+//                        Rectangle()
+//                            .frame(width: 120, height: 170)
+//                            .opacity(0)
                     }
                     .overlay(
                         RoundedRectangle(cornerRadius:15)
                             .stroke(lineWidth:1.5)
                             .foregroundColor(Color.white)
                     )
-                    .frame(minWidth: 300, minHeight: 155, alignment: .center)
+                    .frame(minWidth: 320, minHeight: 140, alignment: .center)
                     .padding(10)
+                    .padding(.top, 10)
 
                     
                     
@@ -84,7 +88,7 @@ struct CreatingSeedView: View {
                     TestCreatingSeedView("2 page", isSelected: $isShapeSelected)
                     TestCreatingSeedView("3 page", isSelected: $isColorSelected)
                     TestCreatingSeedView("4 page", isSelected: $isNameSelected)
-                }.modifier(ScrollingHStackModifier(items:4, itemWidth: 300, itemSpacing: 10, currentPageIndex: $currentPageIndex))
+                }.modifier(ScrollingHStackModifier(items:4, itemWidth: 320, itemSpacing: 10, currentPageIndex: $currentPageIndex))
                 
             }
         }

@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct EvolutionResultView: View {
+    
     var body: some View {
+        
         
         ZStack {
             Color("BackgroundColor").edgesIgnoringSafeArea(.all)

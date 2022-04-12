@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showSeedCreateModal = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {showSeedCreateModal = true}) {
+            Text("씨앗카드 만들기")
+        }
+        .sheet(isPresented: self.$showSeedCreateModal) {
+            CreatingSeedView()
+        }
     }
 }
 
