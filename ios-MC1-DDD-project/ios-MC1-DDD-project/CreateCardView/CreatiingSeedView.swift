@@ -76,6 +76,8 @@ struct CreatingSeedView: View {
                         RoundedRectangle(cornerRadius:15)
                             .stroke(lineWidth:1.5)
                     .padding(10)
+                        )
+                }
                     
                     
                     

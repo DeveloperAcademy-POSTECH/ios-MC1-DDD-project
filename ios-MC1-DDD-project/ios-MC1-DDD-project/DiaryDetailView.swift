@@ -64,7 +64,7 @@ struct DiaryDetailView: View {
     }
 }
 
-struct TestView_Previews: PreviewProvider {
+struct DiaryDetailView_Previews: PreviewProvider {
     static var previews: some View {
         DiaryDetailView(textTitle: .constant("오늘의 일기"), text: .constant("오늘은 기분이 메롱"))
     }
