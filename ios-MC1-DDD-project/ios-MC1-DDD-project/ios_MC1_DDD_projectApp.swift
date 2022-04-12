@@ -1,8 +1,8 @@
 //
-//  ios_MC1_DDD_projectApp.swift
+//  SwiftUIView.swift
 //  ios-MC1-DDD-project
 //
-//  Created by 이성노 on 2022/04/07.
+//  Created by Park Sungmin on 2022/04/12.
 //
 
 import SwiftUI
@@ -11,7 +11,7 @@ import SwiftUI
 struct ios_MC1_DDD_projectApp: App {
     var body: some Scene {
         WindowGroup {
-            PlantingSeedView()
+            MainPageView()
         }
     }
 }
