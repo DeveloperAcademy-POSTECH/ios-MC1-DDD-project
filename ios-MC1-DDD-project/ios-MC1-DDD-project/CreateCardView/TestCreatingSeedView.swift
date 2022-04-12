@@ -35,6 +35,10 @@ struct TestCreatingSeedView: View {
 struct TestCreatingSeedView_Previews: PreviewProvider {
     static var previews: some View {
         TestCreatingSeedView("오늘 너의 하루는 어땠니?", isSelected: .constant(true))
+<<<<<<< HEAD
             .previewLayout(.fixed(width: 320, height: 550))
+=======
+            .previewLayout(.fixed(width: 320, height: 500))
+>>>>>>> main
     }
 }

@@ -70,14 +70,12 @@ struct CreatingSeedView: View {
                         //                            .frame(width: 120, height: 170)
                         //                            .opacity(0)
                     }
+                    .frame(minWidth: 300, minHeight: 155, alignment: .center)
+                    .padding(10)
                     .overlay(
                         RoundedRectangle(cornerRadius:15)
                             .stroke(lineWidth:1.5)
-                            .foregroundColor(Color.white)
-                    )
-                    .frame(minWidth: 320, minHeight: 140, alignment: .center)
                     .padding(10)
-                    .padding(.top, 10)
                     
                     
                     
@@ -90,10 +88,7 @@ struct CreatingSeedView: View {
                     TestCreatingSeedView("2 page", isSelected: $isShapeSelected)
                         .scaleEffect(currentPageIndex == 2 ? 1 : 0.93)
                     TestCreatingSeedView("3 page", isSelected: $isColorSelected)
-                        .scaleEffect(currentPageIndex == 1 ? 1 : 0.93)
-                    TestCreatingSeedView("4 page", isSelected: $isNameSelected)
                         .scaleEffect(currentPageIndex == 0 ? 1 : 0.93)
-                }.modifier(ScrollingHStackModifier(items:4, itemWidth: 320, itemSpacing: 5, currentPageIndex: $currentPageIndex))
             }
         }
     }
