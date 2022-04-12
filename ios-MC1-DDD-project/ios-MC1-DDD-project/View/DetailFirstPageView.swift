@@ -9,17 +9,17 @@ import SwiftUI
 
 struct DetailFirstPageView: View {
     var makingSeedChar: [Image] = []
-    @State var firstIsTappedNumber: Int = 0
-    @State var isTappedNumber: Int = 0
+    @State var firstIsTappedNumber: Int = 12
+    @State var secondIsTappedNumber: Int = 9
+    @State var currentSeedColor: Int = 10
     @State var currentPageIndex: CGFloat = 3
     
-    @State var isFaceSelected = false;
-    @State var isShapeSelected = false;
-    @State var isColorSelected = false;
-    @State var isNameSelected = false;
+    @State var isFaceSelected = false
+    @State var isShapeSelected = false
+    @State var isColorSelected = false
+    @State var isNameSelected = false
     
     @State var firstIsSelected = false
-    
     
     var body: some View {
         ZStack {
@@ -44,12 +44,17 @@ struct DetailFirstPageView: View {
                     // 이미지 들어갈 영역
                     // padding 15pt + (씨앗 그림 90pt) + padding 15pt = 120pt
                     ZStack{
-                        Image("ShapePNG\(ChooseSecondDetailInformation(isTappedNumber: $isTappedNumber).isTappedNumber)")
+                        Image("ShapePNG\(ChooseSecondDetailInformation(secondIsTappedNumber: $secondIsTappedNumber).secondIsTappedNumber)")
+                            .renderingMode(.template)
+                            .foregroundColor(Color("Color\(currentSeedColor)"))
                             .scaleEffect(1.8)
-        //                    .offset(x: 0, y: -260)
+//                            .offset(x: 0, y: -260)
                         
                         Image("ImojiPNG\(ChooseFirstDetailInformation(firstIsTappedNumber: $firstIsTappedNumber, firstIsSelected: $firstIsSelected).firstIsTappedNumber)")
+                            .renderingMode(.template)
+                            .foregroundColor(secondIsTappedNumber == 9 ? Color.white : Color("darkcolor"))
                             .offset(x: 0, y: 3)
+                            
                     }
                     .frame(width: 100, height: 100, alignment: .center)
                     
@@ -79,11 +84,7 @@ struct DetailFirstPageView: View {
                 .padding(.top, 10)
                 .offset(x: 0, y: -255)
             }
-            
-            
-            
-            
-            
+
             HStack {
                 ForEach(0..<4) { i in
                     if (i % 4 == 0) {
@@ -91,10 +92,10 @@ struct DetailFirstPageView: View {
                             .scaleEffect(currentPageIndex == 3 ? 1 : 0.93)
                         
                     } else if (i % 4 == 1) {
-                        ChooseSecondDetailInformation(isTappedNumber: $isTappedNumber)                            .scaleEffect(currentPageIndex == 2 ? 1 : 0.93)
+                        ChooseSecondDetailInformation(secondIsTappedNumber: $secondIsTappedNumber)                            .scaleEffect(currentPageIndex == 2 ? 1 : 0.93)
                         
                     } else if (i % 4 == 2) {
-                        ChooseThirdDetailInformation()                            .scaleEffect(currentPageIndex == 1 ? 1 : 0.93)
+                        ChooseThirdDetailInformation(currentSeedColor: $currentSeedColor)                            .scaleEffect(currentPageIndex == 1 ? 1 : 0.93)
                         
                     } else {
                         ChooseForthDetailInformation()                            .scaleEffect(currentPageIndex == 0 ? 1 : 0.93)

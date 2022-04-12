@@ -85,12 +85,12 @@ struct CreatingSeedView: View {
                 
                 HStack {
                     // 여기에 씨앗 만드는 뷰 연결하기
-                    TestCreatingSeedView("1 page", isSelected: $isFaceSelected)
-                        .scaleEffect(currentPageIndex == 3 ? 1 : 0.93)
-                    TestCreatingSeedView("2 page", isSelected: $isShapeSelected)
-                        .scaleEffect(currentPageIndex == 2 ? 1 : 0.93)
-                    TestCreatingSeedView("3 page", isSelected: $isColorSelected)
-                        .scaleEffect(currentPageIndex == 0 ? 1 : 0.93)
+//                    TestCreatingSeedView("1 page", isSelected: $isFaceSelected)
+//                        .scaleEffect(currentPageIndex == 3 ? 1 : 0.93)
+//                    TestCreatingSeedView("2 page", isSelected: $isShapeSelected)
+//                        .scaleEffect(currentPageIndex == 2 ? 1 : 0.93)
+//                    TestCreatingSeedView("3 page", isSelected: $isColorSelected)
+//                        .scaleEffect(currentPageIndex == 0 ? 1 : 0.93)
             }
         }
     }

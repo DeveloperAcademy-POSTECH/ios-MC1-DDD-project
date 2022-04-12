@@ -10,7 +10,7 @@ import SwiftUI
 struct ChooseSecondDetailInformation: View {
     @State var isTapped: [Bool] = [false, false, false, false, false, false, false, false, false]
     
-    @Binding var isTappedNumber: Int
+    @Binding var secondIsTappedNumber: Int
 
     func readyToGetToggle() {
         for index in 0...8 {
@@ -38,7 +38,7 @@ struct ChooseSecondDetailInformation: View {
                             .onTapGesture {
                                 readyToGetToggle()
                                 isTapped[i].toggle()
-                                isTappedNumber = i
+                                secondIsTappedNumber = i
                             }
                     }
                 }
@@ -51,7 +51,7 @@ struct ChooseSecondDetailInformation: View {
                             .onTapGesture {
                                 readyToGetToggle()
                                 isTapped[i].toggle()
-                                isTappedNumber = i
+                                secondIsTappedNumber = i
                             }
                     }
                 }
@@ -64,7 +64,7 @@ struct ChooseSecondDetailInformation: View {
                             .onTapGesture {
                                 readyToGetToggle()
                                 isTapped[i].toggle()
-                                isTappedNumber = i
+                                secondIsTappedNumber = i
                             }
                     }
                 }
@@ -75,7 +75,7 @@ struct ChooseSecondDetailInformation: View {
 
 struct ChooseSecondDetailInformation_Previews: PreviewProvider {
     static var previews: some View {
-        ChooseSecondDetailInformation(isTappedNumber: .constant(0))
+        ChooseSecondDetailInformation(secondIsTappedNumber: .constant(0))
             .previewLayout(.fixed(width: 320, height: 500))
     }
 }

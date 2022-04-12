@@ -86,7 +86,7 @@ struct MainPageView: View {
                     Button(action: {showSeedCreateModal = true}) {
                         Image("newSeedFeed")
                     }
-                    .sheet(isPresented: self.$showSeedCreateModal) {
+                    .fullScreenCover(isPresented: self.$showSeedCreateModal) {
                         DetailFirstPageView( currentPageIndex: 4.0)
                         
                     }
