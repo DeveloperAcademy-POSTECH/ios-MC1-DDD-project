@@ -87,7 +87,7 @@ struct MainPageView: View {
                         Image("newSeedFeed")
                     }
                     .sheet(isPresented: self.$showSeedCreateModal) {
-                        DetailFirstPageView( currentPageIndex: 4.0)
+                        DetailFirstPageView( currentPageIndex: 3.0)
                         
                     }
                     .padding(.trailing, 10)
