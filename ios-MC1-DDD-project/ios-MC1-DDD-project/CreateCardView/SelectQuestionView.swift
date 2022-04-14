@@ -94,9 +94,9 @@ struct SelectQuestionView: View {
                 Text("일기 쓰고 뒷면 완성하기")
                     .font(.system(size: 20))
                     .fontWeight(.bold)
-                    .frame(width: 256, height: 48)
+                    .frame(width: 275, height: 48)
             }
-            .frame(width: 256, height: 48)
+            .frame(width: 280, height: 48)
             .foregroundColor(selectedQuestionNumber==0 ? Color.init(red: 136/255, green: 136/255, blue: 136/255): Color.white)
             .background(selectedQuestionNumber==0 ? Color.init(red: 233/255, green: 233/255, blue: 233/255) : Color(seedCard.seedColor))
             .cornerRadius(40)

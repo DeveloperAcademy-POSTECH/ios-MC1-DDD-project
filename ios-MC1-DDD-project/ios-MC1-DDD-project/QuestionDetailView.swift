@@ -15,7 +15,7 @@ struct QuestionDetailView: View {
             ForEach(seedCard.seedQuestionList, id:\.self) { question in
                 Text(question)
                     .font(.system(size: 16/*, weight: .bold*/))
-                    .frame(width: 270)
+                    .frame(width: 320)
                     .frame(minHeight: 20)
                     .padding(.vertical, 6)
                     .padding(.horizontal, 5)

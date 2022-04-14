@@ -72,7 +72,7 @@ struct EvolutionResultView: View {
                             .fontWeight(.bold)
                             .frame(width: 256, height: 48)
                     }
-                    .frame(width: 310, height: 48)
+                    .frame(width: 320, height: 48)
                     .foregroundColor(.white)
                     .background(Color(seedCard.seedColor))
                     .cornerRadius(40)
@@ -80,7 +80,7 @@ struct EvolutionResultView: View {
                         MainPageView()
                     
                 }
-                .frame(maxWidth: 300)
+                .frame(maxWidth: 320)
                 .padding(.bottom, 40)
             }
             }

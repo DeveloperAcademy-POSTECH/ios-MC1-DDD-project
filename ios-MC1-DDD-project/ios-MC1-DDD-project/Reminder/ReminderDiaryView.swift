@@ -46,6 +46,7 @@ struct ReminderDiaryView: View {
                         ReminderDetailView(seedCard: seedCard)
                     }
                 } //VStack_2
+                .frame(width: 320, alignment: .center)
             }//VStack_1
             .background(.white)
             .cornerRadius(15)
@@ -64,7 +65,7 @@ struct ReminderDiaryView: View {
 //                    UIApplication.shared.endEditing()
 //                }
                 .font(.system(size: 20, weight: .bold))
-                .frame(width:260, height: 40)
+                .frame(width:290, height: 40)
                 .padding(.leading,15)
                 .padding(.trailing,15)
                 .padding(.top,10)
@@ -79,14 +80,14 @@ struct ReminderDiaryView: View {
                         if seedCard.seedRetrospect.isEmpty {
                             Text("다시 한 번 곱씹어봐")
                                 .foregroundColor(Color(UIColor.placeholderText))
-                                .padding(.horizontal, 8)
+                                .padding(.horizontal, 10)
                                 .padding(.vertical, 12)
                         }
                         TextEditor(text: $seedCard.seedRetrospect)
-                            .frame(maxWidth:260, maxHeight: .infinity)
+                            .frame(maxWidth:290, maxHeight: .infinity)
                             .lineLimit(20)
-                            .padding(.leading,5)
-                            .padding(.trailing, 5)
+                            .padding(.leading, 15)
+                            .padding(.trailing, 15)
                             .onTapGesture {
                                 self.isfold = true
                             }
@@ -105,7 +106,7 @@ struct ReminderDiaryView: View {
                     Text("저장하기")
                         .font(.system(size: 20))
                         .fontWeight(.bold)
-                        .frame(width: 256, height: 48)
+                        .frame(width: 300, height: 48)
                     NavigationLink(isActive: $saveButtonClicked) {
                         EvolutionResultView(seedCard: seedCard)
                             .navigationBarHidden(true)
@@ -113,9 +114,7 @@ struct ReminderDiaryView: View {
                    
                     } label: { }
                 }
-                
-                
-                .frame(width: 256, height: 48)
+                .frame(width: 300, height: 48)
                 .foregroundColor(seedCard.seedRetrospectTitle=="" || seedCard.seedRetrospect=="" ? Color.init(red: 136/255, green: 136/255, blue: 136/255): Color.white)
                 .background(seedCard.seedRetrospectTitle=="" || seedCard.seedRetrospect=="" ? Color.init(red: 233/255, green: 233/255, blue: 233/255) : Color(seedCard.seedColor))
                 .cornerRadius(40)
@@ -132,7 +131,7 @@ struct ReminderDiaryView: View {
             
 
         }//VStack_0
-        .frame(width: 320, height: 670, alignment: .center)
+        .frame(width: 310, height: 670, alignment: .center)
         .onAppear {
             UITextView.appearance().backgroundColor = .clear
         }

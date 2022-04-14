@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0A3D647627FEB31C004C4F46"
-               BuildableName = "ios-MC1-DDD-project.app"
-               BlueprintName = "ios-MC1-DDD-project"
-               ReferencedContainer = "container:ios-MC1-DDD-project.xcodeproj">
+               BuildableName = "SIMDA.app"
+               BlueprintName = "SIMDA"
+               ReferencedContainer = "container:SIMDA.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A3D647627FEB31C004C4F46"
-            BuildableName = "ios-MC1-DDD-project.app"
-            BlueprintName = "ios-MC1-DDD-project"
-            ReferencedContainer = "container:ios-MC1-DDD-project.xcodeproj">
+            BuildableName = "SIMDA.app"
+            BlueprintName = "SIMDA"
+            ReferencedContainer = "container:SIMDA.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A3D647627FEB31C004C4F46"
-            BuildableName = "ios-MC1-DDD-project.app"
-            BlueprintName = "ios-MC1-DDD-project"
-            ReferencedContainer = "container:ios-MC1-DDD-project.xcodeproj">
+            BuildableName = "SIMDA.app"
+            BlueprintName = "SIMDA"
+            ReferencedContainer = "container:SIMDA.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -62,7 +62,7 @@ struct FrontCardCompleteView: View {
                                 .fontWeight(.bold)
                                 .frame(width: 145, height: 48)
                         }
-                        .frame(width: 145, height: 48)
+                        .frame(width: 150, height: 48)
                         .foregroundColor(.white)
                         .background(Color("Color1"))
                         .cornerRadius(40)
@@ -87,13 +87,13 @@ struct FrontCardCompleteView: View {
                                     .navigationBarBackButtonHidden(true)
                             } label: {}
                         }
-                        .frame(width: 145, height: 48)
+                        .frame(width: 150, height: 48)
                         .foregroundColor(.white)
                         .background(Color("Color4"))
                         .cornerRadius(40)
                         
                     }
-                    .frame(maxWidth: 300)
+                    .frame(maxWidth: 320)
                     .padding(.bottom, 40)
                 }
                 //        .background(Color(red:40/255, green: 40/255, blue: 40/255))

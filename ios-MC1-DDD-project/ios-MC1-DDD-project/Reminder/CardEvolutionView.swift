@@ -41,7 +41,7 @@ struct CardEvolutionView: View {
                                 .fontWeight(.bold)
                                 .frame(width: 145, height: 48)
                         }
-                        .frame(width: 145, height: 48)
+                        .frame(width: 150, height: 48)
                         .foregroundColor(.white)
                         .background(Color("Color1"))
                         .cornerRadius(40)
@@ -62,11 +62,12 @@ struct CardEvolutionView: View {
                                 .navigationBarTitle("", displayMode:.inline)
                             } label: {}
                         }
-                        .frame(width: 145, height: 48)
+                        .frame(width: 150, height: 48)
                         .foregroundColor(.white)
                         .background(Color("Color4"))
                         .cornerRadius(40)
                     }
+                    .frame(width:315)
                     
                     
                 }

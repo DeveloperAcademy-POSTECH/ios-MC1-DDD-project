@@ -144,7 +144,7 @@ struct ChooseFourthDetailInformation: View {
             } label: {
                 Text("씨앗카드 완성하기").bold()
             }
-            .frame(width: 200, height: 40, alignment: .center)
+            .frame(width: 256, height: 40, alignment: .center)
             .foregroundColor(.white)
             .background(firstIsSelected && isShapeSelected && isColorSelected  && isNameSelected ? Color("Color\(currentSeedColor)") : color_style)
             .cornerRadius(15)

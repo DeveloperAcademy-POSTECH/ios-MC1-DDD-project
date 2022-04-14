@@ -21,7 +21,6 @@ struct DiaryView: View {
     var body: some View {
         VStack { //VStack_0
             VStack (spacing: 0){ //VStack_1
-                
                 VStack (spacing: 0){//VStack_2
                     Button {
                         if(self.isfold){
@@ -32,7 +31,7 @@ struct DiaryView: View {
                     }label: {
                         if(self.isfold){
                             QuestionTitleView(seedCard: $seedCard)
-                                .cornerRadius(13,corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])
+                                .cornerRadius(0 ,corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])
                         }else{
                             QuestionTitleView(seedCard: $seedCard)
                                 .cornerRadius(15,corners: [.topLeft, .topRight])
@@ -47,12 +46,14 @@ struct DiaryView: View {
                     }
                 } //VStack_2
                 .background(Color.white)
-                .cornerRadius(15)
             }//VStack_1
+            .frame(width: 320, alignment: .center)
+            .cornerRadius(15)
             .overlay(
                 RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
                     .foregroundColor(Color(seedCard.seedColor))
             )
+
             .padding(.top, 15)
 
             Spacer()
@@ -64,7 +65,7 @@ struct DiaryView: View {
 //                    UIApplication.shared.endEditing()
 //                }
                 .font(.system(size: 20, weight: .bold))
-                .frame(width:260, height: 40)
+                .frame(width:290, height: 40)
                 .padding(.leading,15)
                 .padding(.trailing,15)
                 .padding(.top,10)
@@ -83,9 +84,9 @@ struct DiaryView: View {
                                 .padding(.vertical, 12)
                         }
                         TextEditor(text: $seedCard.seedDiary)
-                            .frame(maxWidth:260, maxHeight: .infinity)
-                            .padding(.leading,5)
-                            .padding(.trailing, 5)
+                            .frame(maxWidth:290, maxHeight: .infinity)
+                            .padding(.leading, 15)
+                            .padding(.trailing, 15)
                             .onTapGesture {
                                 self.isfold = true
                             }
@@ -104,9 +105,9 @@ struct DiaryView: View {
                     Text("저장하기")
                         .font(.system(size: 20))
                         .fontWeight(.bold)
-                        .frame(width: 256, height: 48)
+                        .frame(width: 280, height: 48)
                 }
-                .frame(width: 256, height: 48)
+                .frame(width: 280, height: 48)
                 .foregroundColor(seedCard.seedDiaryTitle=="" || seedCard.seedDiary=="" ? Color.init(red: 136/255, green: 136/255, blue: 136/255): Color.white)
                 .background(seedCard.seedDiaryTitle=="" || seedCard.seedDiary=="" ? Color.init(red: 233/255, green: 233/255, blue: 233/255) : Color(seedCard.seedColor))
                 .cornerRadius(40)
@@ -123,7 +124,7 @@ struct DiaryView: View {
             
 
         }//VStack_0
-        .frame(width: 320, height: 670, alignment: .center)
+        .frame(width: 326, height: 670, alignment: .center)
 //        .background(Color.white)
         .cornerRadius(15)
         .onAppear {

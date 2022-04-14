@@ -80,7 +80,7 @@ struct MainPageView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 300, height: self.buttonSize, alignment: .trailing)
                         .foregroundColor(Color.init(red: 102/255, green: 102/255, blue: 102/255))
-                        .opacity(0)
+                        .opacity(0.1)
                 }
                 .frame(height: 80)
                 //Mark: - 메뉴, 날짜, 달력 상단 구현
@@ -148,7 +148,7 @@ struct MainPageView: View {
                             .font(.system(size: 20, weight: .bold))
                             .frame(width: 145, height: 48)
                     }
-                    .frame(width: 145, height: 48)
+                    .frame(width: 150, height: 48)
                     .foregroundColor(.white)
                     .background(Color("Color"))
                     .cornerRadius(40)
@@ -158,6 +158,7 @@ struct MainPageView: View {
                     }
                     .padding(.trailing, 10)
                     
+                    Spacer()
                     
                     Button {
                         isEvolutionClicked = true
@@ -167,7 +168,7 @@ struct MainPageView: View {
                             .font(.system(size: 20, weight: .bold))
                             .frame(width: 145, height: 48)
                     }
-                    .frame(width: 145, height: 48)
+                    .frame(width: 150, height: 48)
                     .foregroundColor(.white)
                     .background(Color("Color"))
                     .cornerRadius(40)
@@ -176,8 +177,8 @@ struct MainPageView: View {
                             .navigationBarHidden(true)
                             .navigationBarTitle("", displayMode:.inline)
                     }
-                    
                 }
+                .frame(width: 300)
                 .padding(.bottom, 40)
                 Spacer()
             }

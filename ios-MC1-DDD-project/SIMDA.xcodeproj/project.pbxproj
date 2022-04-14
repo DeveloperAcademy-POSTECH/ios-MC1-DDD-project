@@ -57,7 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A3D647727FEB31C004C4F46 /* ios-MC1-DDD-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-MC1-DDD-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A3D647727FEB31C004C4F46 /* SIMDA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SIMDA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3D647E27FEB31D004C4F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A3D648127FEB31D004C4F46 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3074FF72280300CF00300DDE /* PlantingSeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantingSeedView.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		0A3D647827FEB31C004C4F46 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A3D647727FEB31C004C4F46 /* ios-MC1-DDD-project.app */,
+				0A3D647727FEB31C004C4F46 /* SIMDA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -263,9 +263,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A3D647627FEB31C004C4F46 /* ios-MC1-DDD-project */ = {
+		0A3D647627FEB31C004C4F46 /* SIMDA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A3D648527FEB31D004C4F46 /* Build configuration list for PBXNativeTarget "ios-MC1-DDD-project" */;
+			buildConfigurationList = 0A3D648527FEB31D004C4F46 /* Build configuration list for PBXNativeTarget "SIMDA" */;
 			buildPhases = (
 				0A3D647327FEB31C004C4F46 /* Sources */,
 				0A3D647427FEB31C004C4F46 /* Frameworks */,
@@ -275,9 +275,9 @@
 			);
 			dependencies = (
 			);
-			name = "ios-MC1-DDD-project";
+			name = SIMDA;
 			productName = "ios-MC1-DDD-project";
-			productReference = 0A3D647727FEB31C004C4F46 /* ios-MC1-DDD-project.app */;
+			productReference = 0A3D647727FEB31C004C4F46 /* SIMDA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -295,7 +295,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0A3D647227FEB31C004C4F46 /* Build configuration list for PBXProject "ios-MC1-DDD-project" */;
+			buildConfigurationList = 0A3D647227FEB31C004C4F46 /* Build configuration list for PBXProject "SIMDA" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -308,7 +308,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A3D647627FEB31C004C4F46 /* ios-MC1-DDD-project */,
+				0A3D647627FEB31C004C4F46 /* SIMDA */,
 			);
 		};
 /* End PBXProject section */
@@ -556,7 +556,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A3D647227FEB31C004C4F46 /* Build configuration list for PBXProject "ios-MC1-DDD-project" */ = {
+		0A3D647227FEB31C004C4F46 /* Build configuration list for PBXProject "SIMDA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A3D648327FEB31D004C4F46 /* Debug */,
@@ -565,7 +565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A3D648527FEB31D004C4F46 /* Build configuration list for PBXNativeTarget "ios-MC1-DDD-project" */ = {
+		0A3D648527FEB31D004C4F46 /* Build configuration list for PBXNativeTarget "SIMDA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A3D648627FEB31D004C4F46 /* Debug */,
