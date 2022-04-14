@@ -1,11 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "seedShape7.png",
+      "filename" : "seedShape7@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "seedShape7@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

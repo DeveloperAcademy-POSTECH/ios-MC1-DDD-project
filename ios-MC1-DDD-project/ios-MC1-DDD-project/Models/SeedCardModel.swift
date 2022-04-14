@@ -27,6 +27,12 @@ struct SeedCard : Identifiable {
         }
     }
     
+    var treeShape: String {
+        get {
+            return "treeShape\(seedShapeIndex)"
+        }
+    }
+    
     var seedColor: String {
         get {
             return "Color\(seedColorIndex)"
@@ -34,7 +40,7 @@ struct SeedCard : Identifiable {
     }
     
 //    var seedName: String = "냥냥씨앗"
-    private var seedNameOrigin: String = ""
+    var seedNameOrigin: String = ""
 
     var seedName: String{
         get {
@@ -85,7 +91,7 @@ struct SeedCard : Identifiable {
         self.seedColorIndex = seedCard.seedColorIndex
         self.seedKeyword = seedCard.seedKeyword
         self.seedCreatedDate = Date()
-        self.seedName = seedCard.seedName
+        self.seedNameOrigin = seedCard.seedNameOrigin
         self.seedQuestionList = seedCard.seedQuestionList
         self.seedDiaryTitle = seedCard.seedDiaryTitle
         self.seedDiary = seedCard.seedDiary
@@ -113,7 +119,7 @@ extension SeedCard {
     
     
     static var sampleSeedCard1: SeedCard =  {
-        var sampleSeedCard = SeedCard(seedFaceIndex: 11, seedShapeIndex: 4, seedColorIndex: 5, seedName: "화나", seedKeyword: ["오늘은", "기분이", "화나"])
+        var sampleSeedCard = SeedCard(seedFaceIndex: 11, seedShapeIndex: 1, seedColorIndex: 5, seedName: "화나", seedKeyword: ["오늘은", "기분이", "화나"])
     
         sampleSeedCard.seedQuestionList = ["어떤 점이 변하면 이 문제가 해결되었다고 할 수 있을까?", "이 문제가 더 심각해진다면, 어떤게 변할까?", "이 문제를 해결하기 위해 어떤 것들을 시도해볼 수 있을까?"]
         sampleSeedCard.seedDiaryTitle = "오늘의 회고"
@@ -127,7 +133,7 @@ extension SeedCard {
     }()
     
     static var sampleSeedCard2: SeedCard =  {
-        var sampleSeedCard = SeedCard(seedFaceIndex: 5, seedShapeIndex: 3, seedColorIndex: 0, seedName: "메롱", seedKeyword: ["오늘", "기분이", "메롱"])
+        var sampleSeedCard = SeedCard(seedFaceIndex: 5, seedShapeIndex: 5, seedColorIndex: 0, seedName: "메롱", seedKeyword: ["오늘", "기분이", "메롱"])
     
         sampleSeedCard.seedQuestionList = ["어떤 점이 변하면 이 문제가 해결되었다고 할 수 있을까?", "이 문제가 더 심각해진다면, 어떤게 변할까?", "이 문제를 해결하기 위해 어떤 것들을 시도해볼 수 있을까?"]
         sampleSeedCard.seedDiaryTitle = "오늘의 회고"
@@ -137,11 +143,12 @@ extension SeedCard {
         sampleSeedCard.seedRetrospectTitle = ""
         sampleSeedCard.seedRetrospect = ""
         sampleSeedCard.seedCreatedDate = dateFormat.date(from: "2022. 04. 09")!
+        sampleSeedCard.seedIsEvolved = true;
         return sampleSeedCard
     }()
     
     static var sampleSeedCard3: SeedCard =  {
-        var sampleSeedCard = SeedCard(seedFaceIndex: 4, seedShapeIndex: 2, seedColorIndex: 1, seedName: "물방울", seedKeyword: ["오늘은", "기분이", "퐁당"])
+        var sampleSeedCard = SeedCard(seedFaceIndex: 4, seedShapeIndex: 6, seedColorIndex: 1, seedName: "물방울", seedKeyword: ["오늘은", "기분이", "퐁당"])
     
         sampleSeedCard.seedQuestionList = ["어떤 점이 변하면 이 문제가 해결되었다고 할 수 있을까?", "이 문제가 더 심각해진다면, 어떤게 변할까?", "이 문제를 해결하기 위해 어떤 것들을 시도해볼 수 있을까?"]
         sampleSeedCard.seedDiaryTitle = "오늘의 회고"

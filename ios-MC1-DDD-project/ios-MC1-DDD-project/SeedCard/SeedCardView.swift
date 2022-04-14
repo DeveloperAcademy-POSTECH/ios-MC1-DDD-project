@@ -38,27 +38,50 @@ struct SeedCardView: View {
             .scaleEffect(1.2)
             .offset(y:10)
             
-//            Rectangle()
-//                .frame(width: 320, height: 230, alignment: .center)
-//                .foregroundColor(Color.white)
-//            Spacer()
+            //            Rectangle()
+            //                .frame(width: 320, height: 230, alignment: .center)
+            //                .foregroundColor(Color.white)
+            //            Spacer()
             
             // 씨앗 캐릭터 생성 + 배치
-            ZStack{
-                Image(seedCard.seedShape)
-                    .renderingMode(.template)
-                    .foregroundColor(Color(seedCard.seedColor))
-                    .scaleEffect(1.8)
-//                            .offset(x: 0, y: -260)
-                
-                Image(seedCard.seedFace)
-                    .renderingMode(.template)
-                    .foregroundColor(Color("darkcolor"))
-                    .offset(x: 0, y: 3)
+            if(seedCard.seedIsEvolved) {
+                ZStack{
+                    Image("treeTrunk")
+                     
+                    ZStack {
+                        Image(seedCard.treeShape)
+                            .renderingMode(.template)
+                            .foregroundColor(Color(seedCard.seedColor))
+                        //                            .offset(x: 0, y: -260)
+                        
+                        Image(seedCard.seedFace)
+                            .renderingMode(.template)
+                            .foregroundColor(Color("darkcolor"))
+                            .offset(x: 0, y: 3)
+                    }
+                    .offset(x: 0, y: -65)
                     
+                }
+                .frame(width: 100, height: 100, alignment: .center)
+                .offset(y:-25)
             }
-            .frame(width: 100, height: 100, alignment: .center)
-            .offset(y:-25)
+            else {
+                ZStack{
+                    Image(seedCard.seedShape)
+                        .renderingMode(.template)
+                        .foregroundColor(Color(seedCard.seedColor))
+                        .scaleEffect(1.8)
+                    //                            .offset(x: 0, y: -260)
+                    
+                    Image(seedCard.seedFace)
+                        .renderingMode(.template)
+                        .foregroundColor(Color("darkcolor"))
+                        .offset(x: 0, y: 3)
+                    
+                }
+                .frame(width: 100, height: 100, alignment: .center)
+                .offset(y:-25)
+            }
             
             // 씨앗 이름, 태그 배치
             VStack {
@@ -68,7 +91,7 @@ struct SeedCardView: View {
                     .font(.system(size: 32, weight: .heavy))
                     .foregroundColor(.white)
                     .padding(.vertical, 1)
-                    
+                
                 HStack {
                     ForEach(0 ..< seedCard.seedKeyword.count) { keyword in
                         Text("#\(seedCard.seedKeyword[keyword])")
@@ -98,7 +121,7 @@ struct SeedCardView: View {
         .overlay(RoundedRectangle(cornerRadius: 20)
             .stroke(Color(seedCard.seedColor), lineWidth: 2))
         .frame(width: 320, height: 500)
-
+        
     }
 }
 

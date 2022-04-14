@@ -21,6 +21,7 @@ struct QuestionDetailView: View {
                     .padding(.horizontal, 5)
                     .minimumScaleFactor(0.2)
                     .multilineTextAlignment(.center)
+                    .background(Color.white)
             }
         }
     }

@@ -46,6 +46,8 @@ struct DiaryView: View {
                         QuestionDetailView(seedCard: $seedCard)
                     }
                 } //VStack_2
+                .background(Color.white)
+                .cornerRadius(15)
             }//VStack_1
             .overlay(
                 RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
@@ -111,6 +113,8 @@ struct DiaryView: View {
                 .padding(.bottom, 10)
                 .disabled(seedCard.seedDiary.isEmpty || seedCard.seedDiaryTitle.isEmpty)
             } //VStack_3
+            .background(Color.white)
+            .cornerRadius(15)
             .overlay(
                 RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
                     .foregroundColor(Color(seedCard.seedColor))
@@ -120,7 +124,7 @@ struct DiaryView: View {
 
         }//VStack_0
         .frame(width: 320, height: 670, alignment: .center)
-        .background(Color.white)
+//        .background(Color.white)
         .cornerRadius(15)
         .onAppear {
             UITextView.appearance().backgroundColor = .clear

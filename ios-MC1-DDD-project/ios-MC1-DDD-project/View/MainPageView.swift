@@ -36,11 +36,53 @@ struct MainPageView: View {
         currentPageIndex = CGFloat(seedCardManager.seedCardList.count-1)
     }
     
+    func addNotification() {
+        let center = UNUserNotificationCenter.current()
+        
+        let addRequest = {
+            let content = UNMutableNotificationContent()
+            content.title = "\(SeedCard.sampleSeedCard1.seedName)이 나무가 되고 싶어 해요!"
+            content.subtitle = "\"지금도 그렇게 생각해?\""
+            content.sound = UNNotificationSound.default
+            
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            center.add(request)
+        }
+        center.getNotificationSettings {settings in
+            if settings.authorizationStatus == .authorized {
+                // 권한 요청
+                addRequest()
+            } else {
+                center.requestAuthorization(options: [.alert, .badge, .sound]) {
+                    success, error in
+                    if success {
+                        // 권한 요청
+                        addRequest()
+                    } else {
+                        print("D'oh")
+                    }
+                }
+            }
+        }
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
-                    .frame(height: 80)
+                Button {
+                    addNotification()
+                } label: {
+                    Image(systemName: "bell")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300, height: self.buttonSize, alignment: .trailing)
+                        .foregroundColor(Color.init(red: 102/255, green: 102/255, blue: 102/255))
+                        .opacity(0)
+                }
+                .frame(height: 80)
                 //Mark: - 메뉴, 날짜, 달력 상단 구현
                 CustomNavBar( left: {
                     //                    Image(systemName: "line.3.horizontal")
@@ -58,12 +100,7 @@ struct MainPageView: View {
                         .foregroundColor(Color.init(red: 102/255, green: 102/255, blue: 102/255))
                     
                 }, right: {
-                    //                    Image(systemName: "calendar")
-                    //                        .resizable()
-                    //                        .aspectRatio(contentMode: .fit)
-                    //                        .frame(width: self.buttonSize, height: self.buttonSize, alignment: .trailing)
-                    //                        .foregroundColor(Color.init(red: 102/255, green: 102/255, blue: 102/255))
-                    //                        .padding(.trailing, 40)
+                                            
                 })
                 .padding(.top, 20)
                 

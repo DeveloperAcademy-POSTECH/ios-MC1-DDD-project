@@ -53,6 +53,7 @@
 		3450A710280776280018EE38 /* ReminderTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3450A70F280776280018EE38 /* ReminderTitleView.swift */; };
 		3450A712280776470018EE38 /* ReminderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3450A711280776470018EE38 /* ReminderDetailView.swift */; };
 		347B649B28046734006BC332 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		34D8D37228084180003492AC /* NotiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8D37128084180003492AC /* NotiView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,7 @@
 		3450A70F280776280018EE38 /* ReminderTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTitleView.swift; sourceTree = "<group>"; };
 		3450A711280776470018EE38 /* ReminderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailView.swift; sourceTree = "<group>"; };
 		347B648A28046638006BC332 /* QuestionButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionButtonView.swift; sourceTree = "<group>"; };
+		34D8D37128084180003492AC /* NotiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				3074FF72280300CF00300DDE /* PlantingSeedView.swift */,
 				3472CE46280565CD00061CB8 /* ChooseDetailInformation */,
 				3472CE4B280565CD00061CB8 /* MainCardDetailView */,
+				34D8D37128084180003492AC /* NotiView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				3450A6E6280596180018EE38 /* CustomNavBar.swift in Sources */,
 				3450A6C5280595EA0018EE38 /* SelectImojiRawValue.swift in Sources */,
 				3450A6C0280595EA0018EE38 /* DiaryView.swift in Sources */,
+				34D8D37228084180003492AC /* NotiView.swift in Sources */,
 				3450A6E9280596180018EE38 /* UIApplication.swift in Sources */,
 				3450A712280776470018EE38 /* ReminderDetailView.swift in Sources */,
 				3450A70C28076D390018EE38 /* ReminderDiaryView.swift in Sources */,

@@ -36,16 +36,20 @@ struct DetailFirstPageView: View {
         NavigationView{
             ZStack {
                 Color("Color").edgesIgnoringSafeArea(.all)
-                VStack {
-                    Button {
-                        presentationMode.wrappedValue.dismiss()
-
-                    } label: {
-                        Text("돌아가기")
-                            .foregroundColor(Color.white)
-                            .font(.system(size: 20, weight: .bold))
-                    }
-                }.frame(width: 350, height: 764, alignment: .topLeading)
+              
+                VStack(alignment: .leading) {
+                    
+//                    Button {
+//                        presentationMode.wrappedValue.dismiss()
+//
+//                    } label: {
+//                        Label("돌아가기", systemImage: "multiply")
+//                            .labelStyle(.iconOnly)
+//                            .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
+//                            .font(.system(size: 20, weight: .bold))
+//                    }
+                    
+                }.frame(width: 310, height: 744, alignment: .topLeading)
                 
                 HStack(){
                     

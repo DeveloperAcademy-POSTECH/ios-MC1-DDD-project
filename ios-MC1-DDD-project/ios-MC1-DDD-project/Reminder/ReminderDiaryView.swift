@@ -47,6 +47,8 @@ struct ReminderDiaryView: View {
                     }
                 } //VStack_2
             }//VStack_1
+            .background(.white)
+            .cornerRadius(15)
             .overlay(
                 RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
                     .foregroundColor(Color(seedCard.seedColor))
@@ -120,6 +122,8 @@ struct ReminderDiaryView: View {
                 .padding(.bottom, 10)
                 .disabled(seedCard.seedRetrospect.isEmpty || seedCard.seedRetrospectTitle.isEmpty)
             } //VStack_3
+            .background(.white)
+            .cornerRadius(15)
             .overlay(
                 RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
                     .foregroundColor(Color(seedCard.seedColor))
@@ -129,8 +133,6 @@ struct ReminderDiaryView: View {
 
         }//VStack_0
         .frame(width: 320, height: 670, alignment: .center)
-        .background(Color.white)
-        .cornerRadius(15)
         .onAppear {
             UITextView.appearance().backgroundColor = .clear
         }

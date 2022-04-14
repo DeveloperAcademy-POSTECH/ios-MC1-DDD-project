@@ -9,11 +9,13 @@ import SwiftUI
 
 struct FrontCardCompleteView: View {
     let seedCardManager = SeedCardManager.seedCardManager
-
+    
     @State var seedCard: SeedCard
     @State private var notCreatingCard: Bool = false
+    @State private var backCardMakeBtn: Bool = false
+    
     @Environment(\.presentationMode) var presentationMode
-
+    
     
     var body: some View {
         NavigationView {
@@ -52,28 +54,43 @@ struct FrontCardCompleteView: View {
                         //
                         //                    }
                         
-                        Button(action: {
-//                            notCreatingCard = true
-                            seedCardManager.appendCard(seedCard: seedCard)
-                            presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Image("NoCreateButton")
-                            NavigationLink(isActive: $notCreatingCard) {
-                                MainPageView()
-                                    .navigationBarTitle("", displayMode: .inline)
-                                    .navigationBarHidden(true)
-                                
-                            } label: {}
+                        Button {
+                            notCreatingCard = true;
+                        } label: {
+                            Text("아니 괜찮아")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                                .frame(width: 145, height: 48)
+                        }
+                        .frame(width: 145, height: 48)
+                        .foregroundColor(.white)
+                        .background(Color("Color1"))
+                        .cornerRadius(40)
+                        .fullScreenCover(isPresented: $notCreatingCard) {
+                            MainPageView()
+                            
                         }
                         
                         Spacer()
                         
-                        NavigationLink(destination: BackCardMakingView(seedCard: seedCard)
-                            .navigationBarHidden(true)
-                            .navigationBarBackButtonHidden(true)
-                        ) {
-                            Image("YesCreateButton")
+                        Button {
+                            backCardMakeBtn = true
+                        } label: {
+                            Text("응 만들래")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                                .frame(width: 145, height: 48)
+                            
+                            NavigationLink(isActive: $backCardMakeBtn) {
+                                BackCardMakingView(seedCard: seedCard)
+                                    .navigationBarHidden(true)
+                                    .navigationBarBackButtonHidden(true)
+                            } label: {}
                         }
+                        .frame(width: 145, height: 48)
+                        .foregroundColor(.white)
+                        .background(Color("Color4"))
+                        .cornerRadius(40)
                         
                     }
                     .frame(maxWidth: 300)

@@ -32,29 +32,40 @@ struct ChooseThirdDetailInformation: View {
                 
                 HStack {
                     ForEach(0..<5) { i in
-                        Image("Circle \(i)")
-                            .opacity(isTapped[i] ? 1.0 : 0.5)
-                            .padding(4)
-                            .onTapGesture {
-                                isColorSelected = true
-                                readyToGetToggle()
-                                isTapped[i].toggle()
-                                currentSeedColor = i
-                            }
+                        ZStack {
+                            Image("Circle \(i)")
+                            
+                                .padding(4)
+                                .onTapGesture {
+                                    isColorSelected = true
+                                    readyToGetToggle()
+                                    isTapped[i].toggle()
+                                    currentSeedColor = i
+                                }
+                            Image("ColorPicker")
+                                .opacity(isTapped[i] ? 1.0 : 0)
+                        }
+                        
+                        
                     }
                 }
                 
                 HStack {
                     ForEach(5..<10) { i in
-                        Image("Circle \(i)")
-                            .opacity(isTapped[i] ? 1.0 : 0.5)
-                            .padding(4)
-                            .onTapGesture {
-                                isColorSelected = true
-                                readyToGetToggle()
-                                isTapped[i].toggle()
-                                currentSeedColor = i
-                            }
+                        ZStack {
+                            Image("Circle \(i)")
+                                
+                                .padding(4)
+                                .onTapGesture {
+                                    isColorSelected = true
+                                    readyToGetToggle()
+                                    isTapped[i].toggle()
+                                    currentSeedColor = i
+                                }
+                            
+                            Image("ColorPicker")
+                                .opacity(isTapped[i] ? 1.0 : 0)
+                        }
                     }
                 }
                 

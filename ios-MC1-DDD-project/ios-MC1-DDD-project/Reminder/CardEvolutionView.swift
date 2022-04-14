@@ -10,6 +10,8 @@ import SwiftUI
 struct CardEvolutionView: View {
     @State var seedCard: SeedCard
     @State var notRetroSpectingCard: Bool = false
+    @State var evolveBtn: Bool = false
+    
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -29,39 +31,43 @@ struct CardEvolutionView: View {
                     
                     
                     HStack {
-                        //                    Button(action: {}) {
-                        //                        Text("응 만들래")
-                        //                            .font(.system(size: 20, weight: .heavy))
-                        //
-                        //                    }
-                        //                    .frame(width: 145, height: 48, alignment: .center)
-                        //                    .background(Color(red:160/255, green: 194/255, blue: 160/255))
-                        //                    .foregroundColor(.white)
-                        //                    .cornerRadius(25)
-                        //                    .font(.title3)
-                        //                    .padding(.horizontal, 5.0)
-                        //                    .padding(.bottom, 40)
-                        
-                        NavigationLink(destination: RetrospectMakingView(seedCard: seedCard)
-                            .navigationBarHidden(true)
-                            .navigationBarTitle("", displayMode:.inline)
-                        ) {
-                            Image("EvolutionButton")
-                        }
-                        
-                        Spacer()
+                       
                         
                         Button {
                             presentationMode.wrappedValue.dismiss()
                         } label: {
-                            Image("doItLaterButton")
+                            Text("나중에 하기")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                                .frame(width: 145, height: 48)
                         }
+                        .frame(width: 145, height: 48)
+                        .foregroundColor(.white)
+                        .background(Color("Color1"))
+                        .cornerRadius(40)
+                        
+                        Spacer()
+                        
+                        Button {
+                            evolveBtn = true
+                        } label: {
+                            Text("진화하기")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                                .frame(width: 145, height: 48)
+                            
+                            NavigationLink(isActive: $evolveBtn) {
+                                RetrospectMakingView(seedCard: seedCard)
+                                .navigationBarHidden(true)
+                                .navigationBarTitle("", displayMode:.inline)
+                            } label: {}
+                        }
+                        .frame(width: 145, height: 48)
+                        .foregroundColor(.white)
+                        .background(Color("Color4"))
+                        .cornerRadius(40)
                     }
-                    .fullScreenCover(isPresented: $notRetroSpectingCard) {
-                        MainPageView()
-                            .navigationBarHidden(true)
-                            .navigationBarTitle("", displayMode:.inline)
-                    }
+                    
                     
                 }
                 .frame(maxWidth: 300)
