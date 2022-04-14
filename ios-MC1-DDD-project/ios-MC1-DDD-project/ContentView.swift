@@ -15,7 +15,7 @@ struct ContentView: View {
             Text("씨앗카드 만들기")
         }
         .sheet(isPresented: self.$showSeedCreateModal) {
-            CreatingSeedView()
+//            CreatingSeedView()
         }
     }
 }

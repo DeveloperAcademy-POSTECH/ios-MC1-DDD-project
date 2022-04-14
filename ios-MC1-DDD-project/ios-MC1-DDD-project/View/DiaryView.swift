@@ -7,19 +7,11 @@
 
 import SwiftUI
 
-extension UIApplication {
-    func endEditing() {
-        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
 
 struct DiaryView: View {
-    @Binding var questionList: [String]
     
-    init(questionList: Binding<[String]>) {
-        UITextView.appearance().backgroundColor = .clear
-        self._questionList = questionList
-    }
+    
+    @State var seedCard: SeedCard
     
     @State private var textTitle = ""
     @State private var text = ""
@@ -39,10 +31,10 @@ struct DiaryView: View {
                         }
                     }label: {
                         if(self.isfold){
-                            QuestionTitleView()
+                            QuestionTitleView(seedCard: $seedCard)
                                 .cornerRadius(13,corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])
                         }else{
-                            QuestionTitleView()
+                            QuestionTitleView(seedCard: $seedCard)
                                 .cornerRadius(15,corners: [.topLeft, .topRight])
                         }
                         
@@ -51,13 +43,13 @@ struct DiaryView: View {
                     if(self.isfold){
                         
                     }else{
-                        QuestionDetailView(questionList: $questionList)
+                        QuestionDetailView(seedCard: $seedCard)
                     }
                 } //VStack_2
             }//VStack_1
             .overlay(
                 RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
-                    .foregroundColor(Color(red: 239.0 / 255, green: 172.0 / 255, blue: 120.0 / 255))
+                    .foregroundColor(Color(seedCard.seedColor))
             )
             .padding(.top, 15)
 
@@ -65,7 +57,7 @@ struct DiaryView: View {
             
             VStack { //VStack_3
                 Spacer()
-                TextField("일기 제목", text: $textTitle)
+                TextField("일기 제목", text: $seedCard.seedDiaryTitle)
 //                {
 //                    UIApplication.shared.endEditing()
 //                }
@@ -82,47 +74,65 @@ struct DiaryView: View {
                 ScrollView {
                     ZStack(alignment: .topLeading) {
                         
-                        if text.isEmpty {
+                        if seedCard.seedDiary.isEmpty {
                             Text("너의 이야기를 들려줘")
                                 .foregroundColor(Color(UIColor.placeholderText))
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 12)
                         }
-                        TextEditor(text:$text)
+                        TextEditor(text: $seedCard.seedDiary)
                             .frame(maxWidth:260, maxHeight: .infinity)
                             .padding(.leading,5)
                             .padding(.trailing, 5)
                             .onTapGesture {
                                 self.isfold = true
                             }
+                            .keyboardType(.default)
                     }
                     .font(.body)
                 } //ScrollView
                 
                 // TagView(tagTests: []) //간단한 태그기능..
                 
-                NavigationLink{
-                    DiaryDetailView(textTitle: $textTitle, text: $text)
-                }label: {
-                    Image("saveButton")
+                NavigationLink {
+                    BackCardCompleteView(seedCard: seedCard)
+                        .navigationBarHidden(true)
+                        .navigationBarTitle("", displayMode:.inline)
+                } label: {
+                    Text("저장하기")
+                        .font(.system(size: 20))
+                        .fontWeight(.bold)
+                        .frame(width: 256, height: 48)
                 }
-                
+                .frame(width: 256, height: 48)
+                .foregroundColor(seedCard.seedDiaryTitle=="" || seedCard.seedDiary=="" ? Color.init(red: 136/255, green: 136/255, blue: 136/255): Color.white)
+                .background(seedCard.seedDiaryTitle=="" || seedCard.seedDiary=="" ? Color.init(red: 233/255, green: 233/255, blue: 233/255) : Color(seedCard.seedColor))
+                .cornerRadius(40)
+                .padding(.bottom, 10)
+                .disabled(seedCard.seedDiary.isEmpty || seedCard.seedDiaryTitle.isEmpty)
             } //VStack_3
             .overlay(
                 RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
-                    .foregroundColor(Color(red: 239.0 / 255, green: 172.0 / 255, blue: 120.0 / 255))
+                    .foregroundColor(Color(seedCard.seedColor))
             )
             .padding(.bottom, 15)
+            
 
         }//VStack_0
-        .frame(width: 320, height: 700, alignment: .center)
+        .frame(width: 320, height: 670, alignment: .center)
+        .background(Color.white)
+        .cornerRadius(15)
+        .onAppear {
+            UITextView.appearance().backgroundColor = .clear
+        }
+        
     }
 
 }
 
 struct DiaryView_Previews: PreviewProvider {
     static var previews: some View {
-        DiaryView(questionList: .constant(["첫 번째 질문", "두 번째 질문", "세 번째 질문"]))
+        DiaryView(seedCard: SeedCard.sampleSeedCard1)
             .previewLayout(.fixed(width: 320, height: 700))
     }
 }

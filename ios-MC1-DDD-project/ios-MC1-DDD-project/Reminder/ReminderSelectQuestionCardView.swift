@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct SelectQuestionView: View {
-    @State var questionList: [Question]
+struct ReminderSelectQuestionCardView: View {
+    @State var questionList: [Question] = Question.sampleQuestions
     @State private var selectedQuestion: [Bool] = [false, false, false, false, false, false, false, false]
     @State private var selectedQuestionNumber: Int = 0
     
@@ -19,7 +19,7 @@ struct SelectQuestionView: View {
     
     var body: some View {
         VStack {
-            Text("답하고 싶은\n질문을 골라봐")
+            Text("답하고 싶은\n회고 질문을 골라봐")
                 .fontWeight(.heavy)
                 .padding(.top, 30.0)
                 .padding(.leading, 30.0)
@@ -43,7 +43,6 @@ struct SelectQuestionView: View {
                         Text(questionList[index].sentence)
                             .font(.system(size: 14, weight: .semibold))
                             .padding(.vertical, 10)
-                            .frame(width: 260, alignment: .center)
                     }
                     .foregroundColor(Color(red: 104/255, green: 104/255, blue: 104/255))
                     .frame(width: 270)
@@ -87,11 +86,11 @@ struct SelectQuestionView: View {
                         passQuestionList.append(questionList[index].sentence)
                     }
                 }
-                seedCard.seedQuestionList = passQuestionList
+                seedCard.seedRetrospectQuestionList = passQuestionList
                 passQuestionList = []
                 isSelectingDone = true
             } label: {
-                Text("일기 쓰고 뒷면 완성하기")
+                Text("돌아보며 진화하기")
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                     .frame(width: 256, height: 48)
@@ -128,9 +127,9 @@ struct SelectQuestionView: View {
     }
 }
 
-struct SelectQuestionView_Previews: PreviewProvider {
+struct ReminderSelectQuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectQuestionView(questionList: Question.sampleQuestions, seedCard: .constant(SeedCard.sampleSeedCard1), isSelectingDone: .constant(false))
+        ReminderSelectQuestionCardView(questionList: Question.sampleQuestions, seedCard: .constant(SeedCard.sampleSeedCard1), isSelectingDone: .constant(false))
             .previewLayout(.fixed(width: 320, height: 670))
         
     }

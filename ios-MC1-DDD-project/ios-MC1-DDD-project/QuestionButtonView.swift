@@ -15,7 +15,7 @@ struct QuestionButtonView: View {
 
     var body: some View {
         HStack(alignment: .center){
-            Button(question.sentence) {
+            Button{action: {
                 if(selectedQuestionCount < 3) {
                     selectedQuestionCount += (selected ? -1 : 1)
                     selected.toggle()
@@ -30,6 +30,10 @@ struct QuestionButtonView: View {
                 } else {
                     // do none
                 }
+            }
+            } label: {
+                Text(question.sentence)
+                    .lineSpacing(70)
             }
                 .padding()
                 .foregroundColor(selected ? .white : .blue)

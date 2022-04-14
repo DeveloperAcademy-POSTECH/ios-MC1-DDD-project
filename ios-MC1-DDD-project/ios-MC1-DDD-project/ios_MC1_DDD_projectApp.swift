@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 @main
 struct ios_MC1_DDD_projectApp: App {
     var body: some Scene {

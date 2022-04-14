@@ -9,44 +9,69 @@ import SwiftUI
 
 struct PlantingSeedView: View {
     
+    @State var seedCard: SeedCard
     @State var viewTranseform = false
     @State private var moving = -80
+    @State var bool: Bool = false
     
     var body: some View {
         
         NavigationView {
             ZStack {
-                
-                Image("PlantingSeed")
-                    .resizable()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                Rectangle()
+                    .foregroundColor(Color(seedCard.seedColor))
                     .edgesIgnoringSafeArea(.all)
-                    .scaledToFill()
+                
+                VStack {
+                    Image("SeedBackImage")
+                        .renderingMode(.template)
+                        .foregroundColor(Color("Color"))
+                        .offset(x: 0, y: -10)
+                }
+                .frame(alignment: .top)
+                .scaleEffect(1.05)
+                .edgesIgnoringSafeArea(.all)
                 
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading) {
-                        Blur()
+                        Blur(seedCard: seedCard)
                             .padding(.bottom, 500)
                     }
                 }
-                NavigationLink(isActive: $viewTranseform) {
-                    NextView().navigationBarBackButtonHidden(true)
-                } label: {}
                 
                 VStack {
                     Spacer()
                     
-                    Image("seed_example")
-                        .offset(y: CGFloat(moving))
-                        .onAppear(){
-                            withAnimation(.spring(response:  1, dampingFraction: 0.7, blendDuration: 0).delay(0.5)){
-                                moving = 60
+                    ZStack{
+                        Image(seedCard.seedShape)
+                            .renderingMode(.template)
+                            .foregroundColor(Color(seedCard.seedColor))
+                            .scaleEffect(1.8)
+        //                            .offset(x: 0, y: -260)
+
+                        Image(seedCard.seedFace)
+                            .renderingMode(.template)
+                            .foregroundColor(Color("darkcolor"))
+                            .offset(x: 0, y: 3)
+
+                    }
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .offset(y: CGFloat(moving))
+                    .scaleEffect(1.3)
+                    .onAppear(){
+                        if(!bool) {
+                            bool.toggle()
+                            print("onAppear")
+                            DispatchQueue.main.asyncAfter(deadline: .now()){
+                                withAnimation(.spring(response:  1, dampingFraction: 0.7, blendDuration: 0).delay(0.5)){ moving = 70 }
                             }
                         }
-                        .scaleEffect(2)
+                    }
                     
                     Spacer()
-                    
+                }
+                .fullScreenCover(isPresented: $viewTranseform) {
+                    MainPageView()
                 }
             }
         }
@@ -54,10 +79,12 @@ struct PlantingSeedView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3){
                 self.viewTranseform = true
             }
+//            withAnimation(.spring(response:  1, dampingFraction: 0.7, blendDuration: 0).delay(0.5)){ moving = 70 }
         })
     }
     
     struct Blur: View {
+        let seedCard: SeedCard
         let characters = Array("너의 씨앗은 멋진 나무가 될거야")
         @State var blurValue: Double = 10
         @State var opacity: Double = 0
@@ -101,9 +128,9 @@ struct PlantingSeedView: View {
                 
                 Text("")
                 
-                Text("2022.04.12")
+                Text(seedCard.seedCreatedDate, formatter: SeedCard.dateFormat)
                     .font(.system(size: 20))
-                    .foregroundColor(Color("Color9"))
+                    .foregroundColor(Color(seedCard.seedColor))
                     .bold()
                     .blur(radius: blurValue)
                     .opacity(opacity)
@@ -117,13 +144,15 @@ struct PlantingSeedView: View {
             // Reference from :
             // https://github.com/chitomo12/SwiftUI-Text-Animation-Library?ref=iosexample.com#blur
         }
+        
     }
+    
 }
 
 
 struct PlantingSeedView_Preview: PreviewProvider {
     static var previews: some View {
-        PlantingSeedView()
+        PlantingSeedView(seedCard: .sampleSeedCard1)
     }
 }
 

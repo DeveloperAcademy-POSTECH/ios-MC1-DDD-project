@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct QuestionDetailView: View {
-    @Binding var seedCard: SeedCard
+struct ReminderDetailView: View {
+    @State var seedCard: SeedCard
     
     var body: some View {
         VStack(spacing:0) {
-            ForEach(seedCard.seedQuestionList, id:\.self) { question in
+            ForEach(seedCard.seedRetrospectQuestionList, id:\.self) { question in
                 Text(question)
                     .font(.system(size: 16/*, weight: .bold*/))
                     .frame(width: 270)
@@ -26,8 +26,8 @@ struct QuestionDetailView: View {
     }
 }
 
-struct QuestionDetailView_Previews: PreviewProvider {
+struct ReminderDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionDetailView(seedCard: .constant(SeedCard.sampleSeedCard1))
+        ReminderDetailView(seedCard: SeedCard.sampleSeedCard1)
     }
 }

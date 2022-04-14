@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct QuestionTitleView: View {
+struct ReminderTitleView: View {
     @Binding var seedCard: SeedCard
     
     var body: some View {
-        Text("오늘의 질문")
+        Text("오늘의 회고")
             .font(.system(size: 16, weight: .bold))
             .frame(width: 290, height: 40)
             .foregroundColor(Color.white)
@@ -19,7 +19,7 @@ struct QuestionTitleView: View {
     }
 }
 
-struct QuestionTitleView_Previews: PreviewProvider {
+struct ReminderTitleView_Previews: PreviewProvider {
     static var previews: some View {
         QuestionTitleView(seedCard: .constant(SeedCard.sampleSeedCard1))
     }

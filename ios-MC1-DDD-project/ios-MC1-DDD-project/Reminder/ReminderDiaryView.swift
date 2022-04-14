@@ -1,0 +1,147 @@
+//
+//  DiaryView.swift
+//  test_main
+//
+//  Created by Jeon Jimin on 2022/04/10.
+//
+
+import SwiftUI
+
+struct ReminderDiaryView: View {
+    
+    let seedCardManager = SeedCardManager.seedCardManager
+    @State var seedCard: SeedCard
+    
+    @State private var textTitle = ""
+    @State private var text = ""
+    
+    @State private var saveButtonClicked: Bool = false
+    @State private var isfold: Bool = false
+    
+    var body: some View {
+        VStack { //VStack_0
+            VStack (spacing: 0){ //VStack_1
+                
+                VStack (spacing: 0){//VStack_2
+                    Button {
+                        if(self.isfold){
+                            isfold = false
+                        }else{
+                            isfold = true
+                        }
+                    }label: {
+                        if(self.isfold){
+                            ReminderTitleView(seedCard: $seedCard)
+                                .cornerRadius(13,corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])
+                        }else{
+                            ReminderTitleView(seedCard: $seedCard)
+                                .cornerRadius(15,corners: [.topLeft, .topRight])
+                        }
+                        
+                    }
+                    
+                    if(self.isfold){
+                        
+                    }else{
+                        ReminderDetailView(seedCard: seedCard)
+                    }
+                } //VStack_2
+            }//VStack_1
+            .overlay(
+                RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
+                    .foregroundColor(Color(seedCard.seedColor))
+            )
+            .padding(.top, 15)
+
+            Spacer()
+            
+            VStack { //VStack_3
+                Spacer()
+                TextField("회고 제목", text: $seedCard.seedRetrospectTitle)
+//                {
+//                    UIApplication.shared.endEditing()
+//                }
+                .font(.system(size: 20, weight: .bold))
+                .frame(width:260, height: 40)
+                .padding(.leading,15)
+                .padding(.trailing,15)
+                .padding(.top,10)
+                .onTapGesture {
+                    self.isfold = true
+                    print("onTapGesture")
+                }
+
+                ScrollView {
+                    ZStack(alignment: .topLeading) {
+                        
+                        if seedCard.seedRetrospect.isEmpty {
+                            Text("다시 한 번 곱씹어봐")
+                                .foregroundColor(Color(UIColor.placeholderText))
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 12)
+                        }
+                        TextEditor(text: $seedCard.seedRetrospect)
+                            .frame(maxWidth:260, maxHeight: .infinity)
+                            .lineLimit(20)
+                            .padding(.leading,5)
+                            .padding(.trailing, 5)
+                            .onTapGesture {
+                                self.isfold = true
+                            }
+                            .keyboardType(.default)
+                    }
+                    .font(.body)
+                } //ScrollView
+                
+                // TagView(tagTests: []) //간단한 태그기능..
+                
+                Button (action: {
+                    seedCard.seedIsEvolved = true;
+                    seedCardManager.appendCard(seedCard: seedCard)
+                    saveButtonClicked = true
+                }) {
+                    Text("저장하기")
+                        .font(.system(size: 20))
+                        .fontWeight(.bold)
+                        .frame(width: 256, height: 48)
+                    NavigationLink(isActive: $saveButtonClicked) {
+                        EvolutionResultView(seedCard: seedCard)
+                            .navigationBarHidden(true)
+                            .navigationBarTitle("", displayMode:.inline)
+                   
+                    } label: { }
+                }
+                
+                
+                .frame(width: 256, height: 48)
+                .foregroundColor(seedCard.seedRetrospectTitle=="" || seedCard.seedRetrospect=="" ? Color.init(red: 136/255, green: 136/255, blue: 136/255): Color.white)
+                .background(seedCard.seedRetrospectTitle=="" || seedCard.seedRetrospect=="" ? Color.init(red: 233/255, green: 233/255, blue: 233/255) : Color(seedCard.seedColor))
+                .cornerRadius(40)
+                .padding(.bottom, 10)
+                .disabled(seedCard.seedRetrospect.isEmpty || seedCard.seedRetrospectTitle.isEmpty)
+            } //VStack_3
+            .overlay(
+                RoundedRectangle(cornerRadius:15).stroke(lineWidth:2)
+                    .foregroundColor(Color(seedCard.seedColor))
+            )
+            .padding(.bottom, 15)
+            
+
+        }//VStack_0
+        .frame(width: 320, height: 670, alignment: .center)
+        .background(Color.white)
+        .cornerRadius(15)
+        .onAppear {
+            UITextView.appearance().backgroundColor = .clear
+        }
+        
+    }
+
+}
+
+struct ReminderDiaryView_Previews: PreviewProvider {
+    static var previews: some View {
+        ReminderDiaryView(seedCard: SeedCard.sampleSeedCard1)
+            .previewLayout(.fixed(width: 320, height: 700))
+    }
+}

@@ -10,6 +10,7 @@ import SwiftUI
 struct ChooseThirdDetailInformation: View {
     @State var isTapped: [Bool] = [false, false, false, false, false, false, false, false, false, false]
     @Binding var currentSeedColor: Int
+    @Binding var isColorSelected: Bool
     
     func readyToGetToggle() {
         for index in 0...9 {
@@ -35,6 +36,7 @@ struct ChooseThirdDetailInformation: View {
                             .opacity(isTapped[i] ? 1.0 : 0.5)
                             .padding(4)
                             .onTapGesture {
+                                isColorSelected = true
                                 readyToGetToggle()
                                 isTapped[i].toggle()
                                 currentSeedColor = i
@@ -48,6 +50,7 @@ struct ChooseThirdDetailInformation: View {
                             .opacity(isTapped[i] ? 1.0 : 0.5)
                             .padding(4)
                             .onTapGesture {
+                                isColorSelected = true
                                 readyToGetToggle()
                                 isTapped[i].toggle()
                                 currentSeedColor = i
@@ -66,7 +69,7 @@ struct ChooseThirdDetailInformation: View {
 
 struct ChooseThirdDetailInformation_Previews: PreviewProvider {
     static var previews: some View {
-        ChooseThirdDetailInformation(currentSeedColor: .constant(0))
+        ChooseThirdDetailInformation(currentSeedColor: .constant(0), isColorSelected: .constant(false))
             .previewLayout(.fixed(width: 320, height: 500))
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ScrollingHStackModifier: ViewModifier {
+struct ScrollingHStackModifier_R: ViewModifier {
     
     @State private var scrollOffset: CGFloat
     @State private var dragOffset: CGFloat
@@ -27,7 +27,7 @@ struct ScrollingHStackModifier: ViewModifier {
         let screenWidth = UIScreen.main.bounds.width
         
         // Set Initial Offset to first Item
-        let initialOffset = ((contentWidth/2.0) - (screenWidth/2.0) + ((screenWidth - itemWidth) / 2.0))
+        let initialOffset = ((contentWidth/2.0) - (screenWidth/2.0) + ((screenWidth - itemWidth) / 2.0)) * -1
         
         self._scrollOffset = State(initialValue: initialOffset)
         self._dragOffset = State(initialValue: 0)
