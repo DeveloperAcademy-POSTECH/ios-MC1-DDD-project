@@ -44,15 +44,17 @@ struct ChooseFourthDetailInformation: View {
         
         
         VStack (alignment: .center, spacing: 50){
+            Spacer()
+                .frame(height:30)
             VStack (alignment: .leading){
-                Text("씨앗에 이름을 붙여줘")
-                    .font(.system(size: 20, weight: .heavy))
-                    .foregroundColor(color_text)
+                Text("Today's Seed Name")
+                    .font(.system(size: 20, weight: .regular))
+                    .foregroundColor(Color.black)
                 ZStack {
                     HStack {
-                        TextField("이름", text: $currentSeedName)
+                        TextField("name", text: $currentSeedName)
                             .padding(.horizontal)
-                            .frame(width: 200, height: 40, alignment: .center)
+                            .frame(width: 190, height: 40, alignment: .center)
                             .cornerRadius(13,corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])
                             .submitLabel(.done)
                             .disableAutocorrection(true)
@@ -65,10 +67,11 @@ struct ChooseFourthDetailInformation: View {
                             }
                             .keyboardType(.default)
                         
-                        Text("씨앗")
+                        Text("Seed")
                             .font(.system(size: 18))
+                            .fontWeight(.regular)
                             .foregroundColor(color_text)
-                            .bold()
+                            
                         
                     }
 //                    .frame(width: .infinity, height: .infinity, alignment: .center)
@@ -83,16 +86,16 @@ struct ChooseFourthDetailInformation: View {
             }
             
             VStack (alignment: .leading){
-                Text("씨앗을 간단하게 설명해줘")
-                    .font(.system(size: 20, weight:.bold))
-                    .foregroundColor(color_text)
+                Text("Today's Keywords")
+                    .font(.system(size: 20, weight:.regular))
+                    .foregroundColor(Color(red: 20/255, green: 20/255, blue: 20/255))
                 
                 ForEach (0..<3){ index in
                     HStack{
                         Text("#")
                             .font(.system(size: 20))
                             .foregroundColor(color_text)
-                        TextField("오늘의 키워드", text: $tag[index])
+                        TextField("Keyword", text: $tag[index])
                             .padding(.horizontal)
                             .disableAutocorrection(true)
                             .frame(height: 40)
@@ -142,7 +145,7 @@ struct ChooseFourthDetailInformation: View {
                 isCreatingDone = true;
                 
             } label: {
-                Text("씨앗 완성하기").bold()
+                Text("Create Seed Card").bold()
             }
             .frame(width: 256, height: 40, alignment: .center)
             .foregroundColor(.white)

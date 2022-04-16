@@ -11,8 +11,8 @@ struct QuestionTitleView: View {
     @Binding var seedCard: SeedCard
     
     var body: some View {
-        Text("오늘의 질문")
-            .font(.system(size: 16, weight: .bold))
+        Text("Today's Questions")
+            .font(.system(size: 18, weight: .bold))
             .frame(width: 320, height: 40)
             .foregroundColor(Color.white)
             .background(Color(seedCard.seedColor))

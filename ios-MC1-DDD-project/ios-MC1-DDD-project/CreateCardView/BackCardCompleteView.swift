@@ -20,12 +20,16 @@ struct BackCardCompleteView: View {
                 
                 ZStack{
                     VStack(alignment: .center) {
-                        Text("씨앗 카드를 완성했어! \n카드를 터치해서 뒤집어봐")
-                            .frame(width: 300, height: 50, alignment: .leading)
-                            .padding(.top, 70)
-                            .font(.system(size:20, weight: .heavy))
-                            .foregroundColor(Color.white)
-                        
+                        HStack {
+//                            Text("씨앗 카드를 완성했어! \n카드를 터치해서 뒤집어봐")
+                            Text("You made a seed card\nTouch the card to see your story")
+                                .frame(width: 300, height: 50, alignment: .leading)
+                                .padding(.top, 70)
+                                .font(.system(size:20, weight: .regular))
+                                .foregroundColor(Color.white)
+                                .offset(x: 0, y: 10)
+                        }
+                        .frame(width: 300)
                         ZStack {
                             Button() {
                                 withAnimation {
@@ -55,7 +59,7 @@ struct BackCardCompleteView: View {
                                         seedCardManager.appendCard(seedCard: seedCard)
                                     }
                             } label: {
-                                Text("씨앗 심기")
+                                Text("Plant Your Seed")
                                     .font(.system(size: 20))
                                     .fontWeight(.bold)
                                     .frame(width: 300, height: 48)

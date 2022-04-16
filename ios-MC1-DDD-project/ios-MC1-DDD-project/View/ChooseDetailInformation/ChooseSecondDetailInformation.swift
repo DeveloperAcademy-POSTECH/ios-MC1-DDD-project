@@ -24,12 +24,20 @@ struct ChooseSecondDetailInformation: View {
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.white)
                 .frame(width: 320, height: 500, alignment: .center)
+            Text("Express your feeling")
+                .fontWeight(.regular)
+                .frame(width: 255, alignment: .leading)
+                .font(.system(size: 20))
+                .foregroundColor(Color(red: 20/255, green: 20/255, blue: 20/255))
+                .offset(x:0, y:-180)
+           
             
             VStack {
-                Text("그 감정은 어떻게 생겼어?")
-                    .font(.system(size: 20, weight: .black))
-                    .offset(x:-40, y: -53)
-                    .foregroundColor(Color.init(red: 102/255, green: 102/255, blue: 102/255))
+//                Text("그 감정은 어떻게 생겼어?")
+//                Text("How does it look like?")
+//                    .font(.system(size: 20, weight: .black))
+//                    .offset(x:-40, y: -53)
+//                    .foregroundColor(Color.init(red: 102/255, green: 102/255, blue: 102/255))
                 
                 HStack {
                     ForEach(0..<3) { i in

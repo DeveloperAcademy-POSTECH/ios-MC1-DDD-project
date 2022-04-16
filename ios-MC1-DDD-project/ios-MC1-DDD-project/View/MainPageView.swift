@@ -41,8 +41,8 @@ struct MainPageView: View {
         
         let addRequest = {
             let content = UNMutableNotificationContent()
-            content.title = "\(SeedCard.sampleSeedCard1.seedName)이 나무가 되고 싶어 해요!"
-            content.subtitle = "\"지금도 그렇게 생각해?\""
+            content.title = "\(SeedCard.sampleSeedCard1.seedName) says to you"
+            content.subtitle = "\"Do you still think so?\""
             content.sound = UNNotificationSound.default
             
             
@@ -143,9 +143,9 @@ struct MainPageView: View {
                     Button {
                         showSeedCreateModal = true
                     } label: {
-                        Label("씨앗 심기", systemImage: "plus")
+                        Label("New Seed", systemImage: "plus")
                         //                        Text("진화하기")
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 19, weight: .bold))
                             .frame(width: 145, height: 48)
                     }
                     .frame(width: 150, height: 48)
@@ -163,9 +163,9 @@ struct MainPageView: View {
                     Button {
                         isEvolutionClicked = true
                     } label: {
-                        Label("진화하기", systemImage: "arrow.up.circle")
+                        Label("Grow", systemImage: "arrow.up")
                         //                        Text("진화하기")
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 19, weight: .bold))
                             .frame(width: 145, height: 48)
                     }
                     .frame(width: 150, height: 48)

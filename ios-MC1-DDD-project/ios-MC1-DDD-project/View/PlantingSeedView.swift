@@ -76,7 +76,7 @@ struct PlantingSeedView: View {
             }
         }
         .onAppear(perform: {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4){
                 self.viewTranseform = true
             }
 //            withAnimation(.spring(response:  1, dampingFraction: 0.7, blendDuration: 0).delay(0.5)){ moving = 70 }
@@ -85,23 +85,39 @@ struct PlantingSeedView: View {
     
     struct Blur: View {
         let seedCard: SeedCard
-        let characters = Array("너의 씨앗은 멋진 나무가 될거야")
+//        let characters = Array("Your seed will become a wonderful tree")
+//        let characters = Array("Your seed will grow up")
+//        let characters2 = Array("to be a wonderful tree")
+        let characters = Array("Your seed will become")
+        let characters2 = Array("a wonderful tree")
         @State var blurValue: Double = 10
         @State var opacity: Double = 0
         
         var body: some View {
             
             VStack {
-                HStack(spacing: 1){
-                    ForEach(0..<17) { num in
-                        Text(String(self.characters[num]))
-                            .font(.system(size: 25))
-                            .foregroundColor(Color.white)
-                            .bold()
-                            .blur(radius: blurValue)
-                            .opacity(opacity)
-                            .animation(.easeInOut.delay( Double(num) * 0.05 ),
-                                       value: blurValue)
+                VStack{
+                    HStack(spacing: 1){
+                        ForEach(0..<characters.count) { num in
+                            Text(String(self.characters[num]))
+                                .font(.system(size: 22, weight: .regular))
+                                .foregroundColor(Color.white)
+                                .blur(radius: blurValue)
+                                .opacity(opacity)
+                                .animation(.easeInOut.delay( Double(num) * 0.05 ),
+                                           value: blurValue)
+                        }
+                    }
+                    HStack(spacing: 1) {
+                        ForEach(0..<characters2.count) { num in
+                            Text(String(self.characters2[num]))
+                                .font(.system(size: 22, weight: .regular))
+                                .foregroundColor(Color.white)
+                                .blur(radius: blurValue)
+                                .opacity(opacity)
+                                .animation(.easeInOut.delay( Double(num) * 0.05 + 1 ),
+                                           value: blurValue)
+                        }
                     }
                 }.onTapGesture {
                     if blurValue == 0 {
@@ -129,15 +145,15 @@ struct PlantingSeedView: View {
                 Text("")
                 
                 Text(seedCard.seedCreatedDate, formatter: SeedCard.dateFormat)
-                    .font(.system(size: 20))
+                    .font(.system(size: 20, weight: .medium))
                     .foregroundColor(Color(seedCard.seedColor))
                     .bold()
                     .blur(radius: blurValue)
                     .opacity(opacity)
-                    .animation(.easeInOut.delay(1),
+                    .animation(.easeInOut.delay(1+1.3),
                                value: blurValue)
                     .onAppear{
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {}
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {}
                     }
                 }
             

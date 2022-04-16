@@ -15,7 +15,7 @@ struct QuestionDetailView: View {
             ForEach(seedCard.seedQuestionList, id:\.self) { question in
                 Text(question)
                     .font(.system(size: 16/*, weight: .bold*/))
-                    .frame(width: 320)
+                    .frame(width: 320, alignment: .center)
                     .frame(minHeight: 20)
                     .padding(.vertical, 6)
                     .padding(.horizontal, 5)
@@ -23,7 +23,13 @@ struct QuestionDetailView: View {
                     .multilineTextAlignment(.center)
                     .background(Color.white)
             }
+            
+            Divider()
+             .frame(width: 200, height: 1)
+             .padding(.horizontal, 30)
+             .background(Color(red: 200/255, green: 200/255, blue: 200/255))
         }
+        
     }
 }
 

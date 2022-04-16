@@ -11,6 +11,7 @@ struct CardEvolutionView: View {
     @State var seedCard: SeedCard
     @State var notRetroSpectingCard: Bool = false
     @State var evolveBtn: Bool = false
+    @State var isFront: Bool = false
     
     @Environment(\.presentationMode) var presentationMode
 
@@ -20,14 +21,32 @@ struct CardEvolutionView: View {
                 Color("BackgroundColor").edgesIgnoringSafeArea(.all)
                 
                 VStack(alignment: .center) {
-                    Text("카드를 만든 날을 돌아보면\n씨앗이 진화할거야")
+//                    Text("카드를 만든 날을 돌아보면\n씨앗이 진화할거야")
+                    Text("Reflect on the past to help \nyour seed grow")
                         .frame(width: 300, height: 50, alignment: .leading)
                         .padding(.top, 70)
-                        .font(.system(size:20, weight: .heavy))
+                        .font(.system(size:20, weight: .regular))
                         .foregroundColor(Color.white)
                     
-                    SeedCardView(seedCard: seedCard)
+                    ZStack {
+                        Button() {
+                            withAnimation {
+                                isFront.toggle()
+                            }
+                        } label: {
+                            ZStack {
+                                SeedCardBackView(seedCard: seedCard)
+                                    .rotation3DEffect(.degrees(isFront ? 0 : 180), axis: (x: 0, y: 1, z: 0))
+                                    .opacity(isFront ? 1.0 : 0.0)
+                                
+                                SeedCardView(seedCard: seedCard)
+                                    .rotation3DEffect(.degrees(isFront ? -180 : 0), axis: (x: 0, y: 1, z: 0))
+                                    .opacity(isFront ? 0.0 : 1.0)
+                            }
+                        }
+                        .frame(width: 300, height: 500, alignment: .center)
                         .padding(30)
+                    }
                     
                     
                     HStack {
@@ -36,7 +55,8 @@ struct CardEvolutionView: View {
                         Button {
                             presentationMode.wrappedValue.dismiss()
                         } label: {
-                            Text("나중에 하기")
+//                            Text("나중에 하기")
+                            Text("Later")
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .frame(width: 145, height: 48)
@@ -51,7 +71,8 @@ struct CardEvolutionView: View {
                         Button {
                             evolveBtn = true
                         } label: {
-                            Text("진화하기")
+//                            Text("진화하기")
+                            Text("Grow")
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .frame(width: 145, height: 48)

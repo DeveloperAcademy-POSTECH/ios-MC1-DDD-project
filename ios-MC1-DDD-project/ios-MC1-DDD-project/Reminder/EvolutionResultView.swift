@@ -20,10 +20,11 @@ struct EvolutionResultView: View {
             Color("BackgroundColor").edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .center) {
-                Text("나무카드로 진화했어!\n카드를 터치해서 뒤집어봐")
+//                Text("나무카드로 진화했어!\n카드를 터치해서 뒤집어봐")
+                Text("Your seed grew into a tree!\nTouch the card to see your story")
                     .frame(width: 300, height: 50, alignment: .leading)
                     .padding(.top, 70)
-                    .font(.system(size:20, weight: .heavy))
+                    .font(.system(size:20, weight: .regular))
                     .foregroundColor(Color.white)
 
 //                SeedCardView(seedCard: seedCard)
@@ -67,7 +68,8 @@ struct EvolutionResultView: View {
 //                        presentationMode.wrappedValue.dismiss()
                         goBackHome = true
                     } label: {
-                        Text("홈으로 돌아가기")
+//                        Text("홈으로 돌아가기")
+                        Text("Return to Home")
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .frame(width: 256, height: 48)
@@ -91,6 +93,6 @@ struct EvolutionResultView: View {
 
 struct EvolutionResultView_Previews: PreviewProvider {
     static var previews: some View {
-        EvolutionResultView(seedCard: .sampleSeedCard1)
+        EvolutionResultView(seedCard: .sampleSeedCard2)
     }
 }

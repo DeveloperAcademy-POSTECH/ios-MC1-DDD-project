@@ -23,12 +23,14 @@ struct FrontCardCompleteView: View {
                 Color("BackgroundColor").edgesIgnoringSafeArea(.all)
                 
                 VStack(alignment: .center) {
-                    Text("씨앗 카드 앞면을 만들었어\n뒷면도 만들어볼래?")
+//                    Text("씨앗 카드 앞면을 만들었어\n뒷면도 만들어볼래?")
+                    Text("You made front side\nPress Continue to complete")
+//                    Text("Front of the card is done\nComplete the back, too?")
                         .frame(width: 300, height: 50, alignment: .leading)
                         .padding(.top, 70)
-                        .font(.system(size:20, weight: .heavy))
+                        .font(.system(size:20, weight: .regular))
                         .foregroundColor(Color.white)
-                    
+                        .offset(x: 0, y: 10)
                     SeedCardView(seedCard: seedCard)
                         .padding(35)
                     
@@ -58,7 +60,8 @@ struct FrontCardCompleteView: View {
                             seedCardManager.appendCard(seedCard: seedCard)
                             notCreatingCard = true;
                         } label: {
-                            Text("아니 괜찮아")
+//                            Text("아니 괜찮아")
+                            Text("It's Okay")
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .frame(width: 145, height: 48)
@@ -77,7 +80,8 @@ struct FrontCardCompleteView: View {
                         Button {
                             backCardMakeBtn = true
                         } label: {
-                            Text("응 만들래")
+//                            Text("응 만들래")
+                            Text("Continue")
                                 .font(.system(size: 20))
                                 .fontWeight(.bold)
                                 .frame(width: 145, height: 48)

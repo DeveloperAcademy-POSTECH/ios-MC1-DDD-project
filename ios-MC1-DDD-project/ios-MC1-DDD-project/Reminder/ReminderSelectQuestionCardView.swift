@@ -19,12 +19,18 @@ struct ReminderSelectQuestionCardView: View {
     
     var body: some View {
         VStack {
-            Text("답하고 싶은\n회고 질문을 골라봐")
-                .fontWeight(.heavy)
-                .padding(.top, 30.0)
-                .padding(.leading, 30.0)
-                .padding(.bottom, 30.0)
-                .frame(width: 300, alignment: .leading)
+//            Text("답하고 싶은\n회고 질문을 골라봐")
+            Text("Choose 1 to 3 questions")
+                .fontWeight(.semibold)
+                .padding(.top, 80.0)
+                .frame(width: 270, alignment: .leading)
+                .font(.system(size:20))
+            Spacer()
+                .frame(height:5)
+            Text("you want to answer")
+                .fontWeight(.semibold)
+                .padding(.bottom, 20.0)
+                .frame(width: 270, alignment: .leading)
                 .font(.system(size:20))
             
             VStack(alignment: .center) {
@@ -90,7 +96,7 @@ struct ReminderSelectQuestionCardView: View {
                 passQuestionList = []
                 isSelectingDone = true
             } label: {
-                Text("돌아보며 진화하기")
+                Text("Refer Back & Grow")
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                     .frame(width: 256, height: 48)

@@ -17,7 +17,8 @@ struct DiaryView: View {
     @State private var text = ""
     
     @State private var isfold: Bool = false
-    
+    @State var recallIsTrue: Bool = true
+
     var body: some View {
         VStack { //VStack_0
             VStack (spacing: 0){ //VStack_1
@@ -60,7 +61,7 @@ struct DiaryView: View {
             
             VStack { //VStack_3
                 Spacer()
-                TextField("일기 제목", text: $seedCard.seedDiaryTitle)
+                TextField("Title", text: $seedCard.seedDiaryTitle)
 //                {
 //                    UIApplication.shared.endEditing()
 //                }
@@ -78,7 +79,7 @@ struct DiaryView: View {
                     ZStack(alignment: .topLeading) {
                         
                         if seedCard.seedDiary.isEmpty {
-                            Text("너의 이야기를 들려줘")
+                            Text("Tell your story")
                                 .foregroundColor(Color(UIColor.placeholderText))
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 12)
@@ -97,12 +98,29 @@ struct DiaryView: View {
                 
                 // TagView(tagTests: []) //간단한 태그기능..
                 
+                HStack {
+//                    Text("Want to remind it?")
+//                    Text("Do you want reminder?")
+                    Text("Remind this diary later?")
+                        .font(.system(size:16, weight: .regular))
+                        .foregroundColor(Color("Color"))
+
+                    Label("", systemImage: recallIsTrue ? "checkmark.square" : "square")
+//                                    .frame(width:30, height:50, alignment: .trailing)
+                        .font(.system(size:20, weight: .regular))
+                        .foregroundColor(Color("Color"))
+                        .onTapGesture {
+                            recallIsTrue.toggle()
+                        }
+                }
+                .padding(3)
+                
                 NavigationLink {
                     BackCardCompleteView(seedCard: seedCard)
                         .navigationBarHidden(true)
                         .navigationBarTitle("", displayMode:.inline)
                 } label: {
-                    Text("저장하기")
+                    Text("Save")
                         .font(.system(size: 20))
                         .fontWeight(.bold)
                         .frame(width: 280, height: 48)

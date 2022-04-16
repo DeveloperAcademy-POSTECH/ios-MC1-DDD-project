@@ -24,12 +24,15 @@ struct ChooseThirdDetailInformation: View {
                 .fill(Color.white)
                 .frame(width: 320, height: 500, alignment: .center)
             
+            Text("Express your feeling")
+                .fontWeight(.regular)
+                .frame(width: 255, alignment: .leading)
+                .font(.system(size: 20))
+                .foregroundColor(Color(red: 20/255, green: 20/255, blue: 20/255))
+                .offset(x:0, y:-180)
+
+            
             VStack {
-                Text("그 감정은 무슨 색이였니?")
-                    .font(.system(size: 20, weight: .black))
-                    .offset(x:-20, y: -105)
-                    .foregroundColor(Color.init(red: 102/255, green: 102/255, blue: 102/255))
-                
                 HStack {
                     ForEach(0..<5) { i in
                         ZStack {

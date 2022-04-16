@@ -60,7 +60,7 @@ struct ReminderDiaryView: View {
             
             VStack { //VStack_3
                 Spacer()
-                TextField("회고 제목", text: $seedCard.seedRetrospectTitle)
+                TextField("Write Title", text: $seedCard.seedRetrospectTitle)
 //                {
 //                    UIApplication.shared.endEditing()
 //                }
@@ -71,14 +71,13 @@ struct ReminderDiaryView: View {
                 .padding(.top,10)
                 .onTapGesture {
                     self.isfold = true
-                    print("onTapGesture")
                 }
 
                 ScrollView {
                     ZStack(alignment: .topLeading) {
                         
                         if seedCard.seedRetrospect.isEmpty {
-                            Text("다시 한 번 곱씹어봐")
+                            Text("Think about it again")
                                 .foregroundColor(Color(UIColor.placeholderText))
                                 .padding(.horizontal, 10)
                                 .padding(.vertical, 12)
@@ -103,7 +102,7 @@ struct ReminderDiaryView: View {
                     seedCardManager.appendCard(seedCard: seedCard)
                     saveButtonClicked = true
                 }) {
-                    Text("저장하기")
+                    Text("Save")
                         .font(.system(size: 20))
                         .fontWeight(.bold)
                         .frame(width: 300, height: 48)
@@ -142,7 +141,7 @@ struct ReminderDiaryView: View {
 
 struct ReminderDiaryView_Previews: PreviewProvider {
     static var previews: some View {
-        ReminderDiaryView(seedCard: SeedCard.sampleSeedCard1)
+        ReminderDiaryView(seedCard: SeedCard.sampleSeedCard2)
             .previewLayout(.fixed(width: 320, height: 700))
     }
 }

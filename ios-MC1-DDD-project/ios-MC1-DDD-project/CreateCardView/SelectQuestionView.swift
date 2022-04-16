@@ -19,12 +19,26 @@ struct SelectQuestionView: View {
     
     var body: some View {
         VStack {
-            Text("답하고 싶은\n질문을 골라봐")
-                .fontWeight(.heavy)
-                .padding(.top, 30.0)
-                .padding(.leading, 30.0)
-                .padding(.bottom, 30.0)
-                .frame(width: 300, alignment: .leading)
+//            Text("답하고 싶은\n질문을 골라봐")
+//                .fontWeight(.heavy)
+//                .padding(.top, 30.0)
+//                .padding(.leading, 30.0)
+//                .padding(.bottom, 30.0)
+//                .frame(width: 300, alignment: .leading)
+//                .font(.system(size:20))
+            Text("Choose 1 to 3 questions")
+                .fontWeight(.semibold)
+                .padding(.top, 80.0)
+                .frame(width: 270, alignment: .leading)
+                .font(.system(size:20))
+            
+            Spacer()
+                .frame(height:5)
+            
+            Text("to describe your day")
+                .fontWeight(.semibold)
+                .padding(.bottom, 20.0)
+                .frame(width: 270, alignment: .leading)
                 .font(.system(size:20))
             
             VStack(alignment: .center) {
@@ -43,7 +57,7 @@ struct SelectQuestionView: View {
                         Text(questionList[index].sentence)
                             .font(.system(size: 14, weight: .semibold))
                             .padding(.vertical, 10)
-                            .frame(width: 260, alignment: .center)
+                            .frame(width: 260, alignment: .leading)
                     }
                     .foregroundColor(Color(red: 104/255, green: 104/255, blue: 104/255))
                     .frame(width: 270)
@@ -91,7 +105,7 @@ struct SelectQuestionView: View {
                 passQuestionList = []
                 isSelectingDone = true
             } label: {
-                Text("일기 쓰고 뒷면 완성하기")
+                Text("Refer Back & Complete")
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                     .frame(width: 275, height: 48)

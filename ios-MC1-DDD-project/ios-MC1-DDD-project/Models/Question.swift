@@ -21,14 +21,14 @@ struct Question: Identifiable {
 
 extension Question {
     static let sampleQuestions: [Question] = [
-        Question(id: 0, sentence: "이 문제가 오래된 문제라고 생각해?", category: "우울"),
-        Question(id: 1, sentence: "내일의 나에게 하고싶은 말은?", category: "우울"),
-        Question(id: 2, sentence: "오늘은 1~10점 중 몇 점이야?", category: "우울"),
-        Question(id: 3, sentence: "1점을 올리려면 어떤걸 해야할까?", category: "우울"),
-        Question(id: 4, sentence: "어떤 점이 변하면 이 문제가 해결되었다고 할 수 있을까?", category: "우울"),
-        Question(id: 5, sentence: "이 문제가 더 심각해진다면, 어떤게 변할까?", category: "우울"),
-        Question(id: 6, sentence: "이 문제를 해결하기 위해 어떤 것들을 시도해볼 수 있을까?", category: "우울"),
-        Question(id: 7, sentence: "답변하고 싶은 너만의 질문이 있어?", category: "우울"),
+        Question(id: 0, sentence: "Do you think this is an old problem?", category: "우울"),
+        Question(id: 1, sentence: "What have you found that is helpful in\n managing this situation?", category: "우울"),
+        Question(id: 2, sentence: "On scale of 0 to 10, How serious do \nyou think the problem is now?", category: "우울"),
+        Question(id: 3, sentence: "What would it take for you to increase, by just one point?", category: "우울"),
+        Question(id: 4, sentence: "What’s the most important thing you have to do to keep things at a 7 or 8?", category: "우울"),
+//        Question(id: 5, sentence: "How your best friend will react when you make the changes we talked about?", category: "우울"),
+//        Question(id: 6, sentence: "What will be the first thing you notice that would tell you that a miracle has happened, that things are different?", category: "우울"),
+        Question(id: 6, sentence: "What’s the first step that you can take to begin to make this miracle happen?", category: "우울"),
     ]
     
     static let sampleSelectedQuestions: [Question] = [

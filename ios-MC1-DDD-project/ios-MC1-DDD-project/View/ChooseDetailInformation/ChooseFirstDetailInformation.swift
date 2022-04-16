@@ -26,12 +26,14 @@ struct ChooseFirstDetailInformation: View {
                 .fill(Color.white)
                 .frame(width: 320, height: 500, alignment: .center)
             
+            Text("Express your feeling")
+                .fontWeight(.regular)
+                .frame(width: 255, alignment: .leading)
+                .font(.system(size: 20))
+                .foregroundColor(Color(red: 20/255, green: 20/255, blue: 20/255))
+                .offset(x:0, y:-180)
+            
             VStack {
-                Text("오늘 네 하루는 어땠어?")
-                    .font(.system(size: 20, weight: .black))
-                    .offset(x:-40, y: -90)
-                    .foregroundColor(Color.init(red: 102/255, green: 102/255, blue: 102/255))
-               
                 HStack {
                     ForEach(0..<4) { i in
                         Image("Group \(i)")
@@ -80,7 +82,9 @@ struct ChooseFirstDetailInformation: View {
 
 struct ChooseFirstDetailInformation_Previews: PreviewProvider {
     static var previews: some View {
-        ChooseFirstDetailInformation(firstIsTappedNumber: .constant(0), firstIsSelected: .constant(false))
-            .previewLayout(.fixed(width: 320, height: 500))
+        DetailFirstPageView()
+
+//        ChooseFirstDetailInformation(firstIsTappedNumber: .constant(0), firstIsSelected: .constant(false))
+//            .previewLayout(.fixed(width: 320, height: 500))
     }
 }
