@@ -27,6 +27,12 @@ struct DetailFirstPageView: View {
     @State var isCreatingDone: Bool = false
     
     @Environment(\.presentationMode) var presentationMode
+    
+    static let dateformat: DateFormatter = {
+       let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY.MM.DD."
+        return formatter
+    }()
 
     
 //    @Binding var showSeedCreateModal: Bool
@@ -38,18 +44,26 @@ struct DetailFirstPageView: View {
                 Color("Color").edgesIgnoringSafeArea(.all)
               
                 VStack(alignment: .leading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+
+                    } label: {
+//                        Text("홈으로 돌아가기")
+                        Label("돌아가기", systemImage: "multiply")
+                            .labelStyle(.iconOnly)
+                            .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
+                            .font(.system(size: 36, weight: .light))
+                    }
+                }.frame(width: 300, height: 730, alignment: .topLeading)
+                
+                VStack(alignment: .leading) {
+                    Text(Date(), formatter: SeedCard.dateFormat)
+//                    .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
+                        .foregroundColor(Color.white)
+                    .font(.system(size: 16, weight: .medium))
                     
-//                    Button {
-//                        presentationMode.wrappedValue.dismiss()
-//
-//                    } label: {
-//                        Label("돌아가기", systemImage: "multiply")
-//                            .labelStyle(.iconOnly)
-//                            .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
-//                            .font(.system(size: 20, weight: .bold))
-//                    }
-                    
-                }.frame(width: 310, height: 744, alignment: .topLeading)
+                }.frame(width: 300, height: 718, alignment: .top)
+                
                 
                 HStack(){
                     
@@ -107,7 +121,7 @@ struct DetailFirstPageView: View {
                     )
                     .frame(minWidth: 320, minHeight: 140, alignment: .center)
                     .padding(10)
-                    .padding(.top, 10)
+                    .padding(.top, 40)
                     .offset(x: 0, y: -255)
                 }
                 

@@ -142,7 +142,7 @@ struct ChooseFourthDetailInformation: View {
                 isCreatingDone = true;
                 
             } label: {
-                Text("씨앗카드 완성하기").bold()
+                Text("씨앗 완성하기").bold()
             }
             .frame(width: 256, height: 40, alignment: .center)
             .foregroundColor(.white)

@@ -55,6 +55,7 @@ struct FrontCardCompleteView: View {
                         //                    }
                         
                         Button {
+                            seedCardManager.appendCard(seedCard: seedCard)
                             notCreatingCard = true;
                         } label: {
                             Text("아니 괜찮아")

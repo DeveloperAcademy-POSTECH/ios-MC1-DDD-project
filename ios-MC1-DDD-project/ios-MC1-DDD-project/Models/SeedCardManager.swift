@@ -26,4 +26,8 @@ class SeedCardManager: ObservableObject {
         seedCardList.append(newSeedCard)
         print("seed card append : \(seedCard.seedName)")
     }
+    
+    func evolutionComplete(index: Int) -> Bool {
+        return seedCardList[seedCardList.count - index - 1].seedIsEvolved
+    }
 }

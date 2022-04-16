@@ -171,12 +171,15 @@ struct MainPageView: View {
                     .frame(width: 150, height: 48)
                     .foregroundColor(.white)
                     .background(Color("Color"))
+//                    .background(seedCardManager.evolutionComplete(index: Int(currentPageIndex)) ? Color.lightGray : Color("Color"))
                     .cornerRadius(40)
                     .fullScreenCover(isPresented: $isEvolutionClicked) {
                         CardEvolutionView(seedCard: seedCardManager.seedCardList[Int(seedCardManager.seedCardList.count - Int(currentPageIndex)-1)])
                             .navigationBarHidden(true)
                             .navigationBarTitle("", displayMode:.inline)
                     }
+                    
+                    .disabled(seedCardManager.seedCardList[Int(seedCardManager.seedCardList.count - Int(currentPageIndex)-1)].seedIsEvolved)
                 }
                 .frame(width: 300)
                 .padding(.bottom, 40)
